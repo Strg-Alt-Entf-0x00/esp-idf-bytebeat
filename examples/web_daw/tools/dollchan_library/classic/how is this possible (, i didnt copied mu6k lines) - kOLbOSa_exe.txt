@@ -1,0 +1,7 @@
+// Name: how is this possible (, i didnt copied mu6k lines)?
+// Author: kOLbOSa_exe
+// Sample Rate: 32000
+// Category: classic
+// Mode: bytebeat
+
+(t*2&((((t&256?-t:t)>>8)&((t&256?-t:t)>>6))))

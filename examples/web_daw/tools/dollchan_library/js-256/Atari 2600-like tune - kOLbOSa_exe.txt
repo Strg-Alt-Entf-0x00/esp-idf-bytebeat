@@ -1,0 +1,7 @@
+// Name: Atari 2600-like tune
+// Author: kOLbOSa_exe
+// Sample Rate: 7500
+// Category: js-256
+// Mode: bytebeat
+
+(0b010101101011011>>(t/"97976565"[(t>>10)%8]%15)&1)*100

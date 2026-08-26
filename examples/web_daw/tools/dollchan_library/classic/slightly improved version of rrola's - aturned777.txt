@@ -1,0 +1,7 @@
+// Name: slightly improved version of rrola's
+// Author: aturned777
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*(0xCA98CA98CA98>>(t>>9&(t>>10))&15)&t>>8

@@ -1,0 +1,7 @@
+// Name: Stimmer but the melodies are on opposite ears
+// Author: PortablePorcelain
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+[(t/2*(4|7&t>>13)>>(~t>>11&1)&128),(t*2*(t>>11&t>>13)*(~t>>9&3)&127)]

@@ -1,0 +1,6 @@
+// Name: Sunrise on Mars
+// Author: SthephanShi
+// Sample Rate: 44100
+// Category: floatbeat-big
+// Mode: Floatbeat
+

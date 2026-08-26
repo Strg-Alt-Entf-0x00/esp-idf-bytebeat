@@ -1,0 +1,7 @@
+// Name: ⌬ (Signed Bytebeat)
+// Author: rubi
+// Sample Rate: 44100
+// Category: js-256
+// Mode: Signed Bytebeat
+
+(30*sin(t>>5)*t>>15)

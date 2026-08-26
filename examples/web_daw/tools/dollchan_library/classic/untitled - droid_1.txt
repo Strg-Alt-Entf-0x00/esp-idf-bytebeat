@@ -1,0 +1,7 @@
+// Name: untitled
+// Author: droid
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t>>6&1?t>>5:-t>>4

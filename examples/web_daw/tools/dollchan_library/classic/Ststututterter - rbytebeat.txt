@@ -1,0 +1,7 @@
+// Name: Ststututterter
+// Author: r/bytebeat
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t*(-(t>>8|t|t>>9|t>>13)))^t

@@ -1,0 +1,7 @@
+// Name: No 5
+// Author: yehar
+// Sample Rate: 8000
+// Category: js-256
+// Mode: Signed Bytebeat
+
+(u=3*t>>t/4096%4&-t%(t>>16|16)*t>>14&8191)/(u>>6|1)*4

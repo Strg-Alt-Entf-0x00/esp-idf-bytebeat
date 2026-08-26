@@ -1,0 +1,7 @@
+// Name: File=Evil ERROR="file_malformed"
+// Author: MeWhen-I-StubMyToe
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+t=t*4,b=(((t/2**16%3)*3)+2|1),t=t^t/b,a=257/2**8,t^t*a

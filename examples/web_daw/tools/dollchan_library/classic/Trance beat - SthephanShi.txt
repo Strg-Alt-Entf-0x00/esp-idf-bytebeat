@@ -1,0 +1,7 @@
+// Name: Trance beat
+// Author: SthephanShi
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t>>(t%16?4:6)|t>>(t%128?10:4)

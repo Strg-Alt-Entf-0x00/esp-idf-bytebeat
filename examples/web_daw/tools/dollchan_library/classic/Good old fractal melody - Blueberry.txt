@@ -1,0 +1,7 @@
+// Name: Good old fractal melody
+// Author: Blueberry
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*(((t>>9)^((t>>9)-1)^1)%13)

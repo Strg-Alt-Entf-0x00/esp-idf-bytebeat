@@ -1,0 +1,7 @@
+// Name: untitled
+// Author: tejeez
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*(((t>>11)&(t>>8))&(123&(t>>3)))

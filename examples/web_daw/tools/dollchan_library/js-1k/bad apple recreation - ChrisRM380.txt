@@ -1,0 +1,6 @@
+// Name: bad apple recreation
+// Author: ChrisRM380
+// Sample Rate: 32000
+// Category: js-1k
+// Mode: bytebeat
+

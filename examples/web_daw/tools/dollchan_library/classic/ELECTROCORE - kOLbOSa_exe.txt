@@ -1,0 +1,7 @@
+// Name: ELECTROCORE
+// Author: kOLbOSa_exe
+// Sample Rate: 32000
+// Category: classic
+// Mode: bytebeat
+
+(((t*((((t>>16^t>>6&t>>12)>>4)^(t>>18^t>>16)%8)%16))&128)/2)+((t*t/((t>>18^t>>16)%8))&-t>>6)

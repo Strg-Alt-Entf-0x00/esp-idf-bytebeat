@@ -1,0 +1,7 @@
+// Name: wvConstruct
+// Author: lhphr
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+t?32*(x=8*cos((t>>10)%27*(t*'2265'[(t>>10)/27&3]%512/512)+abs(x)**.5)/PI)+128:x=0

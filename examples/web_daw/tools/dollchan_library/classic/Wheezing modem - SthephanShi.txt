@@ -1,0 +1,7 @@
+// Name: Wheezing modem
+// Author: SthephanShi
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+100*((t<<2|t>>5|t^63)&(t<<10|t>>11))

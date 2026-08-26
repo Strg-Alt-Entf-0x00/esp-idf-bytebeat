@@ -1,0 +1,7 @@
+// Name: Techno
+// Author: Gabriel Miceli
+// Sample Rate: 11025
+// Category: classic
+// Mode: bytebeat
+
+(t*(((t/10|0)^(t/10|0)-1280)%11)/2&127)+(t*(((t/640|0)^(t/640|0)-2)%13)/2&127)

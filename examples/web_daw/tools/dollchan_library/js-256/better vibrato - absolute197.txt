@@ -1,0 +1,7 @@
+// Name: better vibrato
+// Author: absolute197
+// Sample Rate: 32000
+// Category: js-256
+// Mode: bytebeat
+
+a=63+sin(t/6e3)*64,t+a&64

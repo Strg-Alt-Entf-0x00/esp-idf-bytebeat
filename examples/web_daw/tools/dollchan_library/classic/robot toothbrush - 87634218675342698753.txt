@@ -1,0 +1,7 @@
+// Name: robot toothbrush
+// Author: 87634218675342698753
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((t/800|10)*t&85)-t&t/4

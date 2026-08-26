@@ -1,0 +1,7 @@
+// Name: Remix of something1
+// Author: ChrisRM380
+// Sample Rate: 32000
+// Category: js-256
+// Mode: bytebeat
+
+wininit=(t>>5|t/4*[1,2,1,2,1,2,0.9,1.8][(t>>13)%8]),winit=(t*[1,0,1,0,1.2,0,1,0,4/3,1.2,1,0,1.2,0,0.9,0,1,0,1,0,0.8,0,0.75,0,1.2,0,0.75,0,8/7.1,0,0.75,0][(t>>12)%32]|15),[wininit,(t>>4|winit)]

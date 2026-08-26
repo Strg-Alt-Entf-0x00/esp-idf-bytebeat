@@ -1,0 +1,7 @@
+// Name: sounds like a square, but it is not
+// Author: kOLbOSa_exe
+// Sample Rate: 16000
+// Category: js-256
+// Mode: bytebeat
+
+max((109>>t/4),-128)+min(128,-(109>>(t/4+16)))+128

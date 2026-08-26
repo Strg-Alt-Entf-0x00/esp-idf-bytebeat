@@ -1,0 +1,7 @@
+// Name: The "t^t" Noise
+// Author: MT2023
+// Sample Rate: 36000
+// Category: js-256
+// Mode: bytebeat
+
+((t^t*2)*[.9,.89,.80,.687][(t>>15)%4]&127)*.3**(t/16%2048/2048)

@@ -1,0 +1,8 @@
+// Name: samplerate detector
+// Author: orion_aboy
+// Sample Rate: 100000
+// Category: js-256
+// Mode: bytebeat
+
+sr=100000,
+t||(realt=0),realt++,(()=>{throw floor(sr*realt/t)})()

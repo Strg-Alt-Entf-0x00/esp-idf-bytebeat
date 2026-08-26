@@ -1,0 +1,7 @@
+// Name: untitled
+// Author: ryg
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+((t*"36364689"[t>>13&7]/12)&128)+((((t>>12)^(t>>12)-2)%11*t/4|t>>13)&127)

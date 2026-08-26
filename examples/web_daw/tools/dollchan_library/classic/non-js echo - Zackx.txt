@@ -1,0 +1,7 @@
+// Name: non-js echo
+// Author: Zackx
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t>>2&t<<(7&~t>>10)

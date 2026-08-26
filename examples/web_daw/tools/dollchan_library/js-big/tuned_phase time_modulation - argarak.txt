@@ -1,0 +1,6 @@
+// Name: tuned_phase time_modulation
+// Author: argarak
+// Sample Rate: 44100
+// Category: js-big
+// Mode: bytebeat
+

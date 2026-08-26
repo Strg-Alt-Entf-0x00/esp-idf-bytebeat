@@ -1,0 +1,7 @@
+// Name: Time machine
+// Author: MeWhen-I-StubMyToe
+// Sample Rate: 32768
+// Category: js-256
+// Mode: bytebeat
+
+t=t*t*t*t/2**48,D1=t/2**8,D2=t/2**8*1.25,t=t^D1|D2,t&t/256

@@ -1,0 +1,7 @@
+// Name: Isolated and edited drums
+// Author: SArpnt
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+t&4096?(t*(t^t%9)|t>>3)>>1:255

@@ -1,0 +1,7 @@
+// Name: 8-bit guitar
+// Author: ANoUserXD
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t/(t/(3+(t>>12&3))*(3+(t>>14&6))&120)&1023)/(t>>5&127)

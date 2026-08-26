@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: Funcbeat Anon
+// Sample Rate: 8000
+// Category: funcbeat
+// Mode: bytebeat
+

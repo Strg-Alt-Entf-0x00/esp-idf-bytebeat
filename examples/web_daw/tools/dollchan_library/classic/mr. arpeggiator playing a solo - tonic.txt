@@ -1,0 +1,7 @@
+// Name: mr. arpeggiator playing a solo
+// Author: tonic
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t/8)>>(t>>9)*t/((t>>14&3)+4)

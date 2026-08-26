@@ -1,0 +1,6 @@
+// Name: Trip to Otherworld
+// Author: SthephanShi
+// Sample Rate: 32000
+// Category: js-big
+// Mode: bytebeat
+

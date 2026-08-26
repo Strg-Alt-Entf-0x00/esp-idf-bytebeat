@@ -1,0 +1,7 @@
+// Name: Ststututterter hardcore remix
+// Author: Zackx
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+(255&(t*-(t>>8|t|t>>9|t>>13)^t))/2+((3e4/(t*'1114111811121110'[15&t>>12]%4096)**.1)&128)

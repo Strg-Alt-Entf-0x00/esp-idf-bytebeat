@@ -1,0 +1,7 @@
+// Name: crave
+// Author: emelchenko
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+1e2*(sin(t/'20203030202030304400550044005500'[(t>>10)%32])+(t>>8))

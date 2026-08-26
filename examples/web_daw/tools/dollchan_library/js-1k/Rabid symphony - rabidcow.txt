@@ -1,0 +1,7 @@
+// Name: Rabid symphony
+// Author: rabidcow
+// Sample Rate: 8000
+// Category: js-1k
+// Mode: bytebeat
+
+t*Math.pow(2,("kotojokohogohotojokohogokokhpmjmjfokhomkjhggcc kotojokohogohotojokohogokokhpmjmjfrmorokfjkkkkkkrpomkjkmokmpoprrjjkkoommoottqqhjkkjjhfecebccccccfffhihfdfcdahhhjkjhghegcmjcjmjpjojmjkhchkhohmhkhjhkhmhohphmhoomkjkhhhhhh".charCodeAt((t>>10)&255)-58)/12)*63>>6&132

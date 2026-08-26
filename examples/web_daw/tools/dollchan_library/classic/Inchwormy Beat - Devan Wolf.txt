@@ -1,0 +1,7 @@
+// Name: Inchwormy Beat
+// Author: Devan Wolf
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t<<(t>>8)*231

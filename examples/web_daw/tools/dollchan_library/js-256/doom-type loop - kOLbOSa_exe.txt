@@ -1,0 +1,7 @@
+// Name: doom-type loop
+// Author: kOLbOSa_exe
+// Sample Rate: 32000
+// Category: js-256
+// Mode: Signed Bytebeat
+
+[sin(((2**18)/(t&t))==NaN?t*t:((2**18)/((t/8&4095)&t>>5)))*32,sin(4e3/(t/4&4095))*64+sin(4e1/(t&4095))*64]

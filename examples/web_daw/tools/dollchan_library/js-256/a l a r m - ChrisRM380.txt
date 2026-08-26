@@ -1,0 +1,7 @@
+// Name: a l a r m
+// Author: ChrisRM380
+// Sample Rate: 32000
+// Category: js-256
+// Mode: bytebeat
+
+[127-(t*32|127),0][(t>>11)%2]*[1,0][(t>>14)%2]

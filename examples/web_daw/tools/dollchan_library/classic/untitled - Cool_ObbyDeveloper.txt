@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: Cool_ObbyDeveloper
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+

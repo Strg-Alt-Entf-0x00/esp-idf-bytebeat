@@ -1,0 +1,7 @@
+// Name: Intra
+// Author: lhphr
+// Sample Rate: 22050
+// Category: js-256
+// Mode: bytebeat
+
+(t*=t>>11&7)?x=t%257&t%255&t>>12^x/1.5:x=0

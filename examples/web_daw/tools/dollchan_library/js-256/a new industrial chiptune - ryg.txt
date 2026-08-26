@@ -1,0 +1,7 @@
+// Name: a new industrial chiptune
+// Author: ryg
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+t*(1+"4451"[t>>13&3]/10)&t>>9+(t*0.003&3)

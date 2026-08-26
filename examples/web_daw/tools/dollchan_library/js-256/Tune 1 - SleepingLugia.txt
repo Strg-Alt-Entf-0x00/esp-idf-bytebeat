@@ -1,0 +1,7 @@
+// Name: Tune 1
+// Author: SleepingLugia
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+t%4096>256?(t/8>>(t*(4+(t>>9)%3)/(2+((a=t>>13)%8^(a/8))))%32|t/4):t**3

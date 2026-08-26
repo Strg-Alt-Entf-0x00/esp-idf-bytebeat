@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: skurk
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+

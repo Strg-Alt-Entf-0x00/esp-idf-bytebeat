@@ -1,0 +1,7 @@
+// Name: Robocop
+// Author: SthephanShi
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t>>2)*(t&(t&32768?16:24)|t>>(t>>8&28))|t>>2

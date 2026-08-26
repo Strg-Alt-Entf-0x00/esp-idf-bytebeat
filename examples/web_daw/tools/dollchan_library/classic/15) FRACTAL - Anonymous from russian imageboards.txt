@@ -1,0 +1,7 @@
+// Name: 15) FRACTAL
+// Author: Anonymous from russian imageboards
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((t*2>>43|t*3*5>>4)*19)&(t*7>>172)/2

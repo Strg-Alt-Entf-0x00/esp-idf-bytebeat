@@ -1,0 +1,7 @@
+// Name: Namber wan
+// Author: Zackx
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+z=t*'1242'[3&t>>10],z*([1,1.2,1.8,2.7][3&t>>14])

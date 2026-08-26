@@ -1,0 +1,7 @@
+// Name: Song by Gabriel Miceli
+// Author: Gabriel Miceli
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t&t+t/256)-t*(t>>15)&64

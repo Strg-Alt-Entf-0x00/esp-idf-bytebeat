@@ -1,0 +1,7 @@
+// Name: Sineslide
+// Author: lhphr
+// Sample Rate: 48000
+// Category: floatbeat
+// Mode: Floatbeat
+
+t+=2**(25+(t>>21&1)),sin(t*PI/256*((t&t>>13)+(x=t&t>>12))/x)

@@ -1,0 +1,7 @@
+// Name: my last brain cell
+// Author: Zackx
+// Sample Rate: 11025
+// Category: classic
+// Mode: bytebeat
+
+(t*t/(t%8192)|t>>2)*(t>>12)>>4

@@ -1,0 +1,7 @@
+// Name: h
+// Author: rubi
+// Sample Rate: 32000
+// Category: js-256
+// Mode: Signed Bytebeat
+
+sin(t>>13&t/(t>>12&-t>>14&15)&63)*(t>>7&127)

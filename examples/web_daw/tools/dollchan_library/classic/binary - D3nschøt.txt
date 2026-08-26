@@ -1,0 +1,7 @@
+// Name: binary
+// Author: D3nschøt
+// Sample Rate: 44100
+// Category: classic
+// Mode: bytebeat
+
+(t>>12>>(t>>7&7)&1)*255

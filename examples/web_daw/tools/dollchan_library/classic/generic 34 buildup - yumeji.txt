@@ -1,0 +1,7 @@
+// Name: generic 3/4 buildup
+// Author: yumeji
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t&0x256?t>>4:t>>10

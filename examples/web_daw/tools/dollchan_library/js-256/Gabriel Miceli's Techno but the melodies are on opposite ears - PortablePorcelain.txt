@@ -1,0 +1,7 @@
+// Name: Gabriel Miceli's "Techno" but the melodies are on opposite ears
+// Author: PortablePorcelain
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+[(((t/10|0)^(t/10|0)-1280)%11*t),(((t/640|0)^(t/640|0)-2)%13*t)]

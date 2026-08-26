@@ -1,0 +1,30 @@
+// Name: Pitch Interpolation Tutorial
+// Author: PrincessPriscillaPT
+// Sample Rate: 67719.086
+// Category: js-big
+// Mode: Signed Bytebeat
+
+/*
+☁︎✨★ ~ 𝙈𝙖𝙙𝙚 𝙗𝙮 𝙋𝙧𝙞𝙣𝙘𝙚𝙨𝙨𝙋𝙧𝙞𝙨𝙘𝙞𝙡𝙡𝙖𝙋𝙏
+*/
+Octave = 0,
+Pitch  = -6,
+Detune = -20,
+p      = (round(Pitch)+(Octave*12)+(Detune/100)),
+
+/*
+𝙁𝙞𝙧𝙨𝙩, 𝙮𝙤𝙪 𝙣𝙚𝙚𝙙 𝙩𝙤 𝙨𝙚𝙩 𝙖𝙣 𝙞𝙣𝙩𝙚𝙧𝙥𝙤𝙡𝙖𝙩𝙚𝙧. 𝙐𝙨𝙞𝙣𝙜 𝙖𝙣𝙮 𝙫𝙖𝙧𝙞𝙖𝙗𝙡𝙚𝙨 𝙮𝙤𝙪 𝙬𝙖𝙣𝙩 𝙗𝙚𝙨𝙞𝙙𝙚𝙨 𝙩. 𝙁𝙤𝙧 𝙚𝙭𝙖𝙢𝙥𝙡𝙚:
+t||(<variable1>=<variable2>...=0)
+*/
+t||(a=b=0),
+
+/*
+𝙎𝙚𝙘𝙤𝙣𝙙, 𝙮𝙤𝙪 𝙣𝙚𝙚𝙙 𝙩𝙤 𝙨𝙚𝙩 𝙪𝙥 𝙖 𝙨𝙚𝙦𝙪𝙚𝙣𝙘𝙚 𝙪𝙨𝙞𝙣𝙜 𝙖𝙣𝙮 𝙫𝙖𝙧𝙞𝙖𝙗𝙡𝙚, 𝙖𝙙𝙙 𝙩𝙝𝙖𝙩 𝙫𝙖𝙧𝙞𝙖𝙗𝙡𝙚 𝙤𝙣 𝙩𝙝𝙚 𝙞𝙣𝙩𝙚𝙧𝙥𝙤𝙡𝙖𝙩𝙤𝙧, 𝙖𝙣𝙙 𝙖𝙙𝙙 𝙩𝙝𝙚𝙢 𝙞𝙣 𝙩𝙝𝙚 𝙨𝙚𝙦𝙪𝙚𝙣𝙘𝙚 𝙮𝙤𝙪 𝙢𝙖𝙙𝙚 𝙞𝙣 𝙤𝙧𝙙𝙚𝙧. 𝙐𝙨𝙚
+<current variable>=<variable1>+=<variable2>+=(<pitch variable>*2**([<array here>][(t>><speed>)%<length of array>]/12)-<variable2>)/<smoothing>
+*/
+c=a+=b+=(2**(p/12)*2**(parseInt('1144BBRNNIIGGF8BFFGG88B668844643'[(t>>13)%32],36)/12)-b)/500,
+
+/*
+𝙊𝙣𝙘𝙚 𝙩𝙝𝙖𝙩'𝙨 𝙙𝙤𝙣𝙚, 𝙮𝙤𝙪 𝙘𝙖𝙣 𝙚𝙭𝙥𝙚𝙧𝙞𝙢𝙚𝙣𝙩 𝙬𝙞𝙩𝙝 𝙝𝙤𝙬 𝙮𝙤𝙪 𝙬𝙖𝙣𝙩 𝙩𝙤 𝙖𝙛𝙛𝙚𝙘𝙩 𝙩𝙝𝙚 𝙨𝙤𝙪𝙣𝙙. 𝙄 𝙪𝙨𝙚 𝙩𝙝𝙚 𝙋𝙒𝙈 𝙛𝙤𝙧 𝙩𝙝𝙚 𝙨𝙤𝙪𝙣𝙙 𝙖𝙣𝙙 𝙎𝙪𝙣𝙨𝙚𝙩 𝙍𝙤𝙖𝙙 (𝙕𝙖𝙘𝙠𝙭/𝙉𝙞𝙠𝙣𝙚𝙢) 𝙛𝙤𝙧 𝙩𝙝𝙚 𝙢𝙚𝙡𝙤𝙙𝙮. 𝙃𝙖𝙫𝙚 𝙛𝙪𝙣!
+*/
+(c&127)+(t>>11)&128

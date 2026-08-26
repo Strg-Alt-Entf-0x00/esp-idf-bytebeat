@@ -1,0 +1,7 @@
+// Name: brachiosaurus pong (i twisted this paddle)
+// Author: kOLbOSa_exe
+// Sample Rate: 22050
+// Category: classic
+// Mode: Signed Bytebeat
+
+((t*4>>((t>>11|t>>12|(t>>((t>>15^t>>10)+5)))&7))*8)&64

@@ -1,0 +1,7 @@
+// Name: Hard Way
+// Author: bytebeat8khz
+// Sample Rate: 22050
+// Category: js-256
+// Mode: bytebeat
+
+t*2**((t>>15&7^1|t>>14&3^2)/12)*(1+(t>>11&3))|t>>((t>>15&3)==2?6:t>>15&3?4:5)

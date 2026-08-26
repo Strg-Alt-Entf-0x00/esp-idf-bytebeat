@@ -1,0 +1,45 @@
+# ESP-IDF generated output
+build/
+**/build/
+managed_components/
+**/managed_components/
+dependencies.lock
+**/dependencies.lock
+sdkconfig
+**/sdkconfig
+sdkconfig.old
+**/sdkconfig.old
+
+# Firmware and generated binaries
+*.bin
+*.elf
+*.map
+*.hex
+*.uf2
+
+# Python and local tooling
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+tools/backup/backups/
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userossc
+*.sln
+
+# Operating-system files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,7 @@
+// Name: untitled
+// Author: yehar
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+t>>4+!(-t>>13&7)+2*!(t>>17)|t*t*(t>>(t>>12^t>>11)%3+10)/(7+(t>>10&t>>14&3))*!(t&512)<<3+(t>>14&1)

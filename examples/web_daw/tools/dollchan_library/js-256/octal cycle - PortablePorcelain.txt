@@ -1,0 +1,7 @@
+// Name: octal cycle
+// Author: PortablePorcelain
+// Sample Rate: 32000
+// Category: js-256
+// Mode: bytebeat
+
+16*(f=t>>3,f.toString(8)[t>>3&15])

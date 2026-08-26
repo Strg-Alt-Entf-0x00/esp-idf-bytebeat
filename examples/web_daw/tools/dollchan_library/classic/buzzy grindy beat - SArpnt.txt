@@ -1,0 +1,7 @@
+// Name: buzzy grindy beat
+// Author: SArpnt
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t/((t>>3-(t>>14)%2)%(26>>(t>>16)%3))%1024/12<<9/((t>>5)%128)

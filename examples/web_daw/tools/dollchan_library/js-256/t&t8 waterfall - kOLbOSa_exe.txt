@@ -1,0 +1,14 @@
+// Name: t&t>>8 waterfall
+// Author: kOLbOSa_exe
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+n='\n',a();function a(){
+nt = t|0;
+for(i=0;i<1024;i++)
+{t = nt+i;
+n+=String.fromCharCode(65+((t&t>>8)&255));
+if(i%64==63){n+='\n'}}
+if(t%64==63){throw n;}
+return t&t>>8;}

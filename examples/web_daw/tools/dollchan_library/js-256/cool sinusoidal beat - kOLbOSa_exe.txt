@@ -1,0 +1,7 @@
+// Name: cool sinusoidal beat
+// Author: kOLbOSa_exe
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+wv=function(a,b){return sin(t/a)*b+128},wv((t&4095)+1000,32)

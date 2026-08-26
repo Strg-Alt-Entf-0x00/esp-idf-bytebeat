@@ -1,0 +1,7 @@
+// Name: minimal sierpinski harmony
+// Author: viznut
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t&t>>8

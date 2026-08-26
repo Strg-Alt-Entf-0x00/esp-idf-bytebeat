@@ -1,0 +1,7 @@
+// Name: madnessdescent{offset}
+// Author: lhphr
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+(z=(x=((a=t+16777216)&a>>7)+a/32768)/(y=-x|x*a<<8)|y/x)**z

@@ -1,0 +1,6 @@
+// Name: Through the Star System
+// Author: SthephanShi
+// Sample Rate: 44100
+// Category: js-big
+// Mode: bytebeat
+

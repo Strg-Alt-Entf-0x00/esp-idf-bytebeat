@@ -1,0 +1,7 @@
+// Name: for every "loop" it slightly changes
+// Author: No_Half-d01-8875
+// Sample Rate: 22550
+// Category: classic
+// Mode: bytebeat
+
+-t%(-t>>(t&t>>12))&-t>>5

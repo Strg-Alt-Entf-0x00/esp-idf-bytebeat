@@ -1,0 +1,6 @@
+// Name: The Flower Festival
+// Author: Jimmyoshi
+// Sample Rate: 44100
+// Category: js-big
+// Mode: bytebeat
+

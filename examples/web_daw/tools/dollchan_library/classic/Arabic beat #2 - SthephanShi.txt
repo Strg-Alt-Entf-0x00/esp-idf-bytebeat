@@ -1,0 +1,7 @@
+// Name: Arabic beat #2
+// Author: SthephanShi
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t%((t&-16|t>>11)&42)*4|t>>4

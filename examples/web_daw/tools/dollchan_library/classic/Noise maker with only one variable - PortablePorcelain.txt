@@ -1,0 +1,7 @@
+// Name: Noise maker with only one variable
+// Author: PortablePorcelain
+// Sample Rate: 11025
+// Category: classic
+// Mode: bytebeat
+
+(((t&4096?t*(t^t+t/256)|t>>4:t>>3|(t&8192?t<<2:t))>>1&127)+((t*((t>>9^(t>>9)-1^1)%13)&255)>>1))*(2+(t>>16))

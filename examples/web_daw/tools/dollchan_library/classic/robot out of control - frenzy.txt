@@ -1,0 +1,7 @@
+// Name: robot out of control
+// Author: frenzy
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t&64|t>>5)^(t&33|t>>8)^(t&14|t>>9|t&76)^(t|187)^(t*(t>>8&838+t>>13)&644)

@@ -1,0 +1,7 @@
+// Name: untitled
+// Author: harism
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((t>>1%128)+20)*3*t>>14*t>>18

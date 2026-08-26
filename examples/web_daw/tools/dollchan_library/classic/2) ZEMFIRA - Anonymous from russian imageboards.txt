@@ -1,0 +1,7 @@
+// Name: 2) ZEMFIRA
+// Author: Anonymous from russian imageboards
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((t*40>>430|t*40>>4)*430)

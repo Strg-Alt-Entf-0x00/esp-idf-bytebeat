@@ -1,0 +1,7 @@
+// Name: Logics, and?
+// Author: lhphr
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t&(165&t%255)&&t/256*(t&t>>12)

@@ -1,0 +1,7 @@
+// Name: no limit basic
+// Author: Chasyxx
+// Sample Rate: 32000
+// Category: classic
+// Mode: bytebeat
+
+(t*(t>>17&1?t>>16&1?24:21:16)/16)|(t>>6^t>>8)

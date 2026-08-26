@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: Frosty_Replacement12
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+

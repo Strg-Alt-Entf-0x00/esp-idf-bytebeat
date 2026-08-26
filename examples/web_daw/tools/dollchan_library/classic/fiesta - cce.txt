@@ -1,0 +1,7 @@
+// Name: fiesta
+// Author: cce
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((t * (3 + (4 + ((t >> 12) % 2))*(t >> 10) % 7)) & 0x80) * 0.5 * (0.15 + (((t>>9) % 2)))

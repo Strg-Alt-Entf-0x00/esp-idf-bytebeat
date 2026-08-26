@@ -1,0 +1,7 @@
+// Name: Boss level
+// Author: SthephanShi
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*(2-(1&-t>>11))*(5+(2&t>>14))>>(3&t>>8)|t>>3

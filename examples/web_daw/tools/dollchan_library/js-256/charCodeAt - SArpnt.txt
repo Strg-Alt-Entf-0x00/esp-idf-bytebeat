@@ -1,0 +1,7 @@
+// Name: "charCodeAt"
+// Author: SArpnt
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+c='charCodeAt',l=9+!(t&(1<<16)),c[c]((t>>c[c](((t>>9)%l&t>>12)%l))%l)+(t&(1<<12))*.9

@@ -1,0 +1,7 @@
+// Name: happiness
+// Author: Zackx
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t*(2&t>>10|(t>>10&18)-8)&128)*(-t>>2&255)>>7

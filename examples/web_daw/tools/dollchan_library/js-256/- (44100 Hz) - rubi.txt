@@ -1,0 +1,7 @@
+// Name: - (44100 Hz)
+// Author: rubi
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+((t-t%(t/62.4/2E1)^t)+t/4E3)-t>>1

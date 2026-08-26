@@ -1,0 +1,7 @@
+// Name: Lost in Space
+// Author: xpansive
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((t*(t>>8|t>>9)&46&t>>8)) ^ (t&t>>13|t>>6)

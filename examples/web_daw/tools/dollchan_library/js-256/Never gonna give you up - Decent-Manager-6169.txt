@@ -1,0 +1,6 @@
+// Name: Never gonna give you up
+// Author: Decent-Manager-6169
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+

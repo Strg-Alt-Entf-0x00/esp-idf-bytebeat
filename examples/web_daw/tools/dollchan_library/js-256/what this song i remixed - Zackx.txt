@@ -1,0 +1,9 @@
+// Name: what this song i remixed?
+// Author: Zackx
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+b=[2,1,3,5][3&t>>16],
+(p=t*'36364689'[t>>13&7]/12),(p%256/2+p%254/2)/2+
+(((t>>12^(t>>12)-b)%11*t/4|t>>13)&127)

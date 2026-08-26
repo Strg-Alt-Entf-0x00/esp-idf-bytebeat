@@ -1,0 +1,7 @@
+// Name: Fault cassette
+// Author: kOLbOSa_exe
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+t=t+sin(t/4096*PI)*512,(t&8192?t&4096?t&1024?2*t:4*t:t&512?4*t:4.2*t:(t&4096?t&1024?2*t:10*t:t&512?2*t:8*t)>>2)*(t&16384?3:2)|t*(t&16384?.125:1/(.01*t))

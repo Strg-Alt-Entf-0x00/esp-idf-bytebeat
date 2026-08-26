@@ -1,0 +1,7 @@
+// Name: I have made a thing#2
+// Author: Anonymous
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t>>10|t*5)&(t>>8|t*4)&(t>>4|t*6)

@@ -1,0 +1,7 @@
+// Name: untitled
+// Author: bear @ celephais
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t+(t&t^t>>6)-t*((t>>9)&(t%16?2:6)&t>>9)

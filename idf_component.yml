@@ -1,0 +1,18 @@
+version: "1.0.0"
+description: "Universal procedural audio and Bytebeat engine for ESP32. Generates algorithmic music/audio directly to I2S without needing audio files."
+url: "https://github.com/Strg-Alt-Entf-0x00/esp-bytebeat"
+repository: "https://github.com/Strg-Alt-Entf-0x00/esp-bytebeat.git"
+license: "MIT"
+
+dependencies:
+  idf:
+    version: ">=5.0"
+
+files:
+  include:
+    - "include/**/*"
+    - "src/**/*"
+    - "CMakeLists.txt"
+    - "idf_component.yml"
+    - "README.md"
+    - "LICENSE"

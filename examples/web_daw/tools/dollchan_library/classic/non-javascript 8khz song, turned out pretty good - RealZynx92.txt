@@ -1,0 +1,7 @@
+// Name: non-javascript 8khz song, turned out pretty good
+// Author: RealZynx92
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(((t>>4)>>(t&(t>>11)))*(((t>>4)>>(t&(t>>11)))&128?-1:1))+(t>>t/(t&65536?2:3)&63)+(3E4/(t&4095)&100)

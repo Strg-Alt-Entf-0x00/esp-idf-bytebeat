@@ -1,0 +1,7 @@
+// Name: Trill
+// Author: r/bytebeat
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+sin(sin(t/100)-t/((2+(t>>10&t>>12)%9)))*64+128

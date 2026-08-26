@@ -1,0 +1,7 @@
+// Name: Street Surfer
+// Author: skurk, raer
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t&4096)?((t*(t^t%255)|(t>>4))>>1):(t>>3)|((t&8192)?t<<2:t)

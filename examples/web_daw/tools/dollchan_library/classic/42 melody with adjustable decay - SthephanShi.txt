@@ -1,0 +1,7 @@
+// Name: 42 melody with adjustable decay
+// Author: SthephanShi
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*(42&t>>10)%256*(1-t%2048/3000)

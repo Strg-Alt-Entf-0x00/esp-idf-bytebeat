@@ -1,0 +1,7 @@
+// Name: hydrogen fucker
+// Author: psubscirbe
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((t/2/(4+(t>>13&3))*128)|t>>(t>>12&15))+400000/(t&4095)|t>>4

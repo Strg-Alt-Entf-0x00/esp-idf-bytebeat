@@ -1,0 +1,8 @@
+// Name: electricity
+// Author: kOLbOSa_exe
+// Sample Rate: 32000
+// Category: classic
+// Mode: bytebeat
+
+((t>>12&3)?((t>>12)%(((t>>16)%6/(3&t>>12))+1)+1)*t&-t>>4:
+((t>>1)%(((t>>16)%6/(3&t>>12))+1)+1)*t&t)+5e3/(t/4&4095)

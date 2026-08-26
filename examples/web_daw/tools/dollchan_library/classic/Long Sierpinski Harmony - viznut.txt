@@ -1,0 +1,7 @@
+// Name: Long Sierpinski Harmony
+// Author: viznut
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t*5&t>>7)|(t*3&t>>10)

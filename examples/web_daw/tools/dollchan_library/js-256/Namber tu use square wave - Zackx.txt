@@ -1,0 +1,7 @@
+// Name: Namber tu use square wave
+// Author: Zackx
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+t*'12345432'[7&t>>12]*[1,1.2,1.8,2.7][3&t>>16]|127

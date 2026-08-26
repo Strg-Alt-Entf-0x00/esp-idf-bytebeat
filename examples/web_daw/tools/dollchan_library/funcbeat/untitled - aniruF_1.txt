@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: aniruF
+// Sample Rate: 8000
+// Category: funcbeat
+// Mode: bytebeat
+

@@ -1,0 +1,7 @@
+// Name: modemfunk
+// Author: mineralcoinboi224
+// Sample Rate: 32000
+// Category: js-256
+// Mode: bytebeat
+
+abs((t*((t&t>>12&t>>12)&(t>>13))/2)%256-127.5)*2&t>>6|4e5/(t&16383)

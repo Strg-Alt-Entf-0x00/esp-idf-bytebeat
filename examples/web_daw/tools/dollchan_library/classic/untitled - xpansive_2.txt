@@ -1,0 +1,7 @@
+// Name: untitled
+// Author: xpansive
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t%(t/(t>>9|t>>13))

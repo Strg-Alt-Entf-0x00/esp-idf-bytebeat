@@ -1,0 +1,7 @@
+// Name: The new unnamed bytebeat by George on blogspot
+// Author: George
+// Sample Rate: 8000
+// Category: classic
+// Mode: Signed Bytebeat
+
+t*(t^t>>20*(t>>11))

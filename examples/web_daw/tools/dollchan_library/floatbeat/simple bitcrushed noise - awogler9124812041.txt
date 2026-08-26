@@ -1,0 +1,9 @@
+// Name: simple bitcrushed noise
+// Author: awogler9124812041
+// Sample Rate: 48000
+// Category: floatbeat
+// Mode: Floatbeat
+
+t||(trg=0),
+(t%16)||(trg=random()-0.5),
+trg

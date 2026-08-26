@@ -1,0 +1,7 @@
+// Name: Inter Time Dubstep
+// Author: Federal_Loss2780
+// Sample Rate: 44100
+// Category: classic
+// Mode: bytebeat
+
+(t>>(t>>13&31)&128)+((t&t>>12)*t>>12)+3e5/(t%16384)

@@ -1,0 +1,7 @@
+// Name: sine of power
+// Author: lhphr
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+(t%32768>>4)**sin(t/2/'66546657'[t>>13&7])&t>>4

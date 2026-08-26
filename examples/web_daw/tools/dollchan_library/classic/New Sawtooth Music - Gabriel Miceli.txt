@@ -1,0 +1,7 @@
+// Name: New Sawtooth Music
+// Author: Gabriel Miceli
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*((t-2296&t)>>11)

@@ -1,0 +1,7 @@
+// Name: Groovy Polka
+// Author: May_I_Change_My_Name
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+t*(5+((t>>10^2)&7))&t>>4|0.999**(t&4095)*(t*(4-(t>>12&1))/2&255)

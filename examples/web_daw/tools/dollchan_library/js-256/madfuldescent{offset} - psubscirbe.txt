@@ -1,0 +1,7 @@
+// Name: madfuldescent{offset}
+// Author: psubscirbe
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+((t>>(t>>17)%3)*-(t>>9|t>>8|t>>10|t>>3|t)+((t>>(t>>16)%3)*(t>>9|t>>17))&128)*1.999

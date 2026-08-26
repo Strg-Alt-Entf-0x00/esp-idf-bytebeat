@@ -1,0 +1,7 @@
+// Name: RYG but c compatible
+// Author: D3nschøt
+// Sample Rate: 44100
+// Category: classic
+// Mode: bytebeat
+
+((t/2*((t>>12^(t>>12)-2)%11)/2|t>>13)&127)+(t/12*(0x98646363>>(t>>11&28)&15)&128)

@@ -1,0 +1,7 @@
+// Name: moj pas je se popiškija u cijelu moju kuču
+// Author: rubi
+// Sample Rate: 6000
+// Category: js-256
+// Mode: bytebeat
+
+tan(6e2/(t&2**12-1))|t*sin(t)*(1&t>>12)&-t>>4|t>>t*[1,1.2,1.5,1.6,t&2**14?1.8:2,1.6,1.5,1.2][7&t>>10]*(t&2**15?.9:1)&t>>4

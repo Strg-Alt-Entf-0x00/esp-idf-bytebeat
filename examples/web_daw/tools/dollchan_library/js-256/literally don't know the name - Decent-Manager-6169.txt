@@ -1,0 +1,8 @@
+// Name: literally don't know the name
+// Author: Decent-Manager-6169
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+a=t*"60303060303060303060303060306030"[t/5.5>>9&31]/8&127,
+b=t*"60303060303060303060303060306030"[t/5.5>>9&31]/[0,2.65,2.5,3][t/5.5>>14&3]/2&127,a+b

@@ -1,0 +1,7 @@
+// Name: Recreated moon scanner generalization
+// Author: psubscirbe
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+(t-(t^t>>5))+(t*[0,2,4,6,8,10,12,14][(t>>15)%8])

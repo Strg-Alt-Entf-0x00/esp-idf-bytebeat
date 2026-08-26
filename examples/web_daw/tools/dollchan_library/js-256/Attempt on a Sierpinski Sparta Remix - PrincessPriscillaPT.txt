@@ -1,0 +1,7 @@
+// Name: Attempt on a Sierpinski Sparta Remix
+// Author: PrincessPriscillaPT
+// Sample Rate: 31608
+// Category: js-256
+// Mode: bytebeat
+
+t/=4,t*2**(([29,30,27,30][t>>13&3]/12)-2/12)|-t>>4

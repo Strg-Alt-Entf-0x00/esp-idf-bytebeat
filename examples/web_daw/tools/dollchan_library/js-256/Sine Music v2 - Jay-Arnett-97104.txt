@@ -1,0 +1,7 @@
+// Name: Sine Music v2
+// Author: Jay-Arnett-97104
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+t=t*4,(sin(t/22/((t>>12)%4+1))*sin(t/22/((t>>15)%4+1))*((t/1)%0.0001)+128)*1280001

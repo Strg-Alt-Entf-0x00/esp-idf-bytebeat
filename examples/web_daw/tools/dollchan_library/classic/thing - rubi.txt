@@ -1,0 +1,7 @@
+// Name: thing
+// Author: rubi
+// Sample Rate: 44100
+// Category: classic
+// Mode: bytebeat
+
+t-((t>>(t&8192?3:2)>>2|t)&t>>10)

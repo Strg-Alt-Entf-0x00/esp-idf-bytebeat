@@ -1,0 +1,7 @@
+// Name: NO ARRAY ARRAY SONG
+// Author: kOLbOSa_exe
+// Sample Rate: 44100
+// Category: classic
+// Mode: bytebeat
+
+((t/t+(((t>>12)%6))+((t>>16)%3))*10)*t>>4

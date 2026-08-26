@@ -1,0 +1,7 @@
+// Name: True LFSR
+// Author: PortablePorcelain
+// Sample Rate: 32000
+// Category: floatbeat
+// Mode: Floatbeat
+
+t ? T++ :(R = Array(N = 16), T = 0), R[T%N] = random()*256&1, R[0]

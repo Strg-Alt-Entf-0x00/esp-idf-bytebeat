@@ -1,0 +1,7 @@
+// Name: No 4
+// Author: yehar
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+((v=t/2^(t&64?63:0))>>v)/(1+(v>>v>>7))&t/32|(t>>11)%8%3*t*t&15

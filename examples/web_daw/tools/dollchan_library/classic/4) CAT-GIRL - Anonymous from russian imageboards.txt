@@ -1,0 +1,7 @@
+// Name: 4) CAT-GIRL
+// Author: Anonymous from russian imageboards
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t<35000?((t*8)|(t>>2)+(t*13)|(t>>3)%t|t>>5):(t<67500?((t*9)|(t>>2)+(t*13)|(t>>3)%t|t>>5):(t<84000?((t*9)|(t>>2)+(t*12)|(t>>3)%t|t>>5):(t<98000?((t*8)|(t>>2)+(t*12)|(t>>3)%t|t>>5):(t<129000?((t*8)|(t>>2)+(t*13)|(t>>3)%t|t>>5):t%0))))

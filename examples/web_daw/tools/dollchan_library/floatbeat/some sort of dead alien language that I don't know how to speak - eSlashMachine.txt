@@ -1,0 +1,7 @@
+// Name: some sort of dead alien language that I don't know how to speak
+// Author: eSlashMachine
+// Sample Rate: 8000
+// Category: floatbeat
+// Mode: Floatbeat
+
+cos(sin(((t=(t/9&t/2))))+sin(((t>>(t/80&t/79)))))/2

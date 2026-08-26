@@ -1,0 +1,6 @@
+// Name: Flying past the Black Hole
+// Author: SthephanShi
+// Sample Rate: 44100
+// Category: js-big
+// Mode: bytebeat
+

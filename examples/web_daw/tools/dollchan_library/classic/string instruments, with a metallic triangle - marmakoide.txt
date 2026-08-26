@@ -1,0 +1,7 @@
+// Name: string instruments, with a metallic triangle
+// Author: marmakoide
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t>>(t&7))|(t<<(t&42))|(t>>7)|(t<<5)

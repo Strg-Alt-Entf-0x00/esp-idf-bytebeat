@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: beep-eep
+// Sample Rate: 8000
+// Category: js-1k
+// Mode: bytebeat
+

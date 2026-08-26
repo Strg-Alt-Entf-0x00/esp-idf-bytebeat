@@ -1,0 +1,7 @@
+// Name: Bots
+// Author: rubi
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+-(((30*sin(t>>4))^t>>9)|(tan(t>>13)&t>>4)*t>>5)

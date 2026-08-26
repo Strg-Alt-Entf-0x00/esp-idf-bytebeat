@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: absolute197
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+

@@ -1,0 +1,7 @@
+// Name: Sin() isn't kosher, people!
+// Author: viznut
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t>>6|t|t>>(t>>16))*10+((t>>11)&7)

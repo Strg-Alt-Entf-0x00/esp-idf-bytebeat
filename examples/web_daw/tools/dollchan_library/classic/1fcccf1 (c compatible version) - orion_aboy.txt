@@ -1,0 +1,7 @@
+// Name: 1fcccf1 (c compatible version)
+// Author: orion_aboy
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((((t>>1)*(1<<(t>>16&3)))*((0x1fccccf1>>(t>>10)*(t>>11))&7))|t>>3)|128-((t&4095)>>8?0:t*(t^t%9)&63|t>>2)

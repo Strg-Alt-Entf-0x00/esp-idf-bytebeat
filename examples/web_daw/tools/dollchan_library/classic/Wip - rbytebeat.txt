@@ -1,0 +1,7 @@
+// Name: Wip
+// Author: r/bytebeat
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(((t&t*5)|t>>4)+(t|t>>4*t<<8-1))^t>>12

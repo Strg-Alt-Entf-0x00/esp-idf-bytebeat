@@ -1,0 +1,7 @@
+// Name: factory settings
+// Author: sean
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+(-t<<((t>>4)%7)) % ( ((t+sin(t/100<<9)/ (50+sin(t<<12<<22)*16) )/9)) % ((t%2550)/10) | (t/6)

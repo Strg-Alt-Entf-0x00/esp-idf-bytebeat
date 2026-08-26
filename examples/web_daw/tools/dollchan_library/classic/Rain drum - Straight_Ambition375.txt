@@ -1,0 +1,7 @@
+// Name: Rain drum
+// Author: Straight_Ambition375
+// Sample Rate: 44100
+// Category: classic
+// Mode: bytebeat
+
+-t%(t/(12|t%(t>>4)))/7

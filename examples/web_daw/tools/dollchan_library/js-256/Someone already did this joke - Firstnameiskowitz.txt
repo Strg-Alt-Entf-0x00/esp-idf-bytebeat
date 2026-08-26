@@ -1,0 +1,7 @@
+// Name: Someone already did this joke
+// Author: Firstnameiskowitz
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+z=t/2*'12348432'[7&t>>12],z*[1,1.2,4/3,2][3&t>>16]|127

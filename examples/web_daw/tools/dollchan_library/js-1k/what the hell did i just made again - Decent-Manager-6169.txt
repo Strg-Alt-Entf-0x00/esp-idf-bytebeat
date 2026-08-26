@@ -1,0 +1,6 @@
+// Name: what the hell did i just made again?
+// Author: Decent-Manager-6169
+// Sample Rate: 70997
+// Category: js-1k
+// Mode: bytebeat
+

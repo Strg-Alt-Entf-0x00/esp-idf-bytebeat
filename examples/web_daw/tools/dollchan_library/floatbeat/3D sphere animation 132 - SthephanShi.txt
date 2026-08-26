@@ -1,0 +1,7 @@
+// Name: 3D sphere animation 1/32
+// Author: SthephanShi
+// Sample Rate: 48000
+// Category: floatbeat
+// Mode: Floatbeat
+
+T=(t-4096)%16384,k=PI*t/262144,y=1-T%32/16,x=(T>>6)/64-1,x*sin(2*k)+y*cos(k)+1.8*sqrt(1-x**2-y**2)-.8||-.8

@@ -1,0 +1,7 @@
+// Name: t*
+// Author: Cool_ObbyDeveloper
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*((t>>12|t>>9)&241&t>>4)

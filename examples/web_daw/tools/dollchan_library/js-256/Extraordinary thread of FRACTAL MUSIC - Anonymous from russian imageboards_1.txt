@@ -1,0 +1,7 @@
+// Name: Extraordinary thread of FRACTAL MUSIC
+// Author: Anonymous from russian imageboards
+// Sample Rate: 8000
+// Category: js-256
+// Mode: bytebeat
+
+(t*t/10000)%100|((t%29+t%46+t%((t>>14)%2?34:43))+(t%17))<<1

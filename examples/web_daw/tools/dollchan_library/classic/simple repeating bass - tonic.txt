@@ -1,0 +1,7 @@
+// Name: simple repeating bass
+// Author: tonic
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+((2*t&255)*(((-t)>>6)&0xff))>>8

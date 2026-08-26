@@ -1,0 +1,7 @@
+// Name: Unnecessary-ARPEG
+// Author: lhphr
+// Sample Rate: 11025
+// Category: js-256
+// Mode: bytebeat
+
+((15+1*'1370'[t>>15&3])/8*'12346543'[t>>10&7]*t%192+160)%256/2+64

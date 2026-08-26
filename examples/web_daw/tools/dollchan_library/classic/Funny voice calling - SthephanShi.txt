@@ -1,0 +1,7 @@
+// Name: Funny voice calling
+// Author: SthephanShi
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*((t>>10|t%16*t>>5)&8*t>>12&18)

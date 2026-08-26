@@ -1,0 +1,6 @@
+// Name: untitled
+// Author: mega9man
+// Sample Rate: 8000
+// Category: js-1k
+// Mode: bytebeat
+

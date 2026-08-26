@@ -1,0 +1,7 @@
+// Name: $ine $tabilizer
+// Author: lhphr
+// Sample Rate: 32000
+// Category: js-256
+// Mode: bytebeat
+
+t/=b=t&t>>12,f=(a,c)=>32*sin(b--%2**c*t/2**a)|0,f(5,4)+f(9,6)+f(12,8)+f(14,9)+128

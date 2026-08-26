@@ -1,0 +1,8 @@
+// Name: some point art
+// Author: D3nschøt
+// Sample Rate: 44100
+// Category: js-256
+// Mode: bytebeat
+
+m = (((t)&2?t/256:256-((t/256)%256))^((t)%64)),
+(abs(((t|abs(m))+abs(256-abs(m)%256/2)%256)%256))

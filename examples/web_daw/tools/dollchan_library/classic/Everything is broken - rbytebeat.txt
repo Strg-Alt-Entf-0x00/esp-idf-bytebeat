@@ -1,0 +1,7 @@
+// Name: Everything is broken
+// Author: r/bytebeat
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t*t/(1+(t>>9&t>>8)))&128

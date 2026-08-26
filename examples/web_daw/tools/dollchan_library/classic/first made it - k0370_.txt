@@ -1,0 +1,7 @@
+// Name: first made it
+// Author: k0370_
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t+(t&1)+(t>>5)*(t>>1)/1|t>>4|t>>8

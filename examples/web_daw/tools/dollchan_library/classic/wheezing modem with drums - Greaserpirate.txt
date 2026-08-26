@@ -1,0 +1,7 @@
+// Name: wheezing modem with drums
+// Author: Greaserpirate
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+(t>>9&1+t>>12&7?0:9001/(t%4096)-t/9&8?-1:0)^t>>4&100*((t<<2|t>>5|t^63)&(t<<10|t>>11))

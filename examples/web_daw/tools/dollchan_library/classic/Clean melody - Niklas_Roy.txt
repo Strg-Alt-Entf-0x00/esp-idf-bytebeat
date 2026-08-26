@@ -1,0 +1,7 @@
+// Name: Clean melody
+// Author: Niklas_Roy
+// Sample Rate: 8000
+// Category: classic
+// Mode: bytebeat
+
+t*(t>>9|t>>13)&16
