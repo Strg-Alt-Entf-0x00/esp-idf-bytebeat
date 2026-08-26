@@ -12,6 +12,7 @@ typedef enum {
     OP_END = 0,
     OP_PUSH_T,       // Push variable 't' onto stack
     OP_PUSH_CONST,   // Push a 32-bit constant onto stack
+    OP_PUSH_FLOAT,   // Push a floating-point constant onto stack
     OP_ADD,
     OP_SUB,
     OP_MUL,
@@ -28,6 +29,7 @@ typedef enum {
 typedef struct {
     bytebeat_op_t op;
     uint32_t value; // Only used for OP_PUSH_CONST
+    float float_value; // Only used for OP_PUSH_FLOAT
 } bytebeat_inst_t;
 
 #define MAX_BYTECODE_LEN 128
@@ -59,6 +61,8 @@ bool bytebeat_compile(const char *equation, bytebeat_program_t *out_program);
  * @return uint8_t The resulting 8-bit audio sample.
  */
 uint8_t IRAM_ATTR bytebeat_execute(const bytebeat_program_t *program, uint32_t t);
+
+float bytebeat_execute_float(const bytebeat_program_t *program, uint32_t t);
 
 #ifdef __cplusplus
 }

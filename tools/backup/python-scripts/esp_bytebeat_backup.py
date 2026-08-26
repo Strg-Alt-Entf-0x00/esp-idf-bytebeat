@@ -138,9 +138,11 @@ def get_critical_files() -> List[str]:
     """Return list of critical files that must be in backup"""
     return [
         'CMakeLists.txt',
-        'test_apps/console/CMakeLists.txt',
-        'test_apps/console/main/main.cpp',
-        'test_apps/console/OmniBox_DAW.html',
+        'idf_component.yml',
+        'include/esp_bytebeat.h',
+        'src/esp_bytebeat.c',
+        'examples/web_daw/CMakeLists.txt',
+        'examples/web_daw/main/main.cpp',
         'tools/backup/esp_bytebeat_backup.bat',
         'tools/backup/python-scripts/esp_bytebeat_backup.py'
     ]
@@ -181,8 +183,8 @@ def verify_backup(zip_path: str, project_root: str) -> Tuple[bool, List[str], di
                 return False, issues, stats
             
             # Check for main directories
-            stats['has_main'] = any(f.startswith('test_apps/console/main/') for f in files)
-            stats['has_test_apps'] = any(f.startswith('test_apps/') for f in files)
+            stats['has_main'] = any(f.startswith('examples/web_daw/main/') for f in files)
+            stats['has_test_apps'] = stats['has_main']
             stats['has_tools'] = any(f.startswith('tools/') for f in files)
             
             # Check critical files
@@ -195,9 +197,9 @@ def verify_backup(zip_path: str, project_root: str) -> Tuple[bool, List[str], di
             
             # Add issues for missing critical components
             if not stats['has_main']:
-                issues.append('Missing test_apps/console/main/ directory')
+                issues.append('Missing examples/web_daw/main/ directory')
             if not stats['has_test_apps']:
-                issues.append('Missing test_apps/ directory')
+                issues.append('Missing examples/web_daw/ directory')
             if stats['critical_missing']:
                 issues.append(f'Missing {len(stats["critical_missing"])} critical files')
     
@@ -231,8 +233,8 @@ def print_verification_report(is_valid: bool, issues: List[str], stats: dict) ->
     print(f'Archive size: {stats["total_size_mb"]:.2f} MB')
     print()
     print('Directory structure:')
-    print(f'  {"[OK]" if stats["has_main"] else "[FAIL]"} test_apps/console/main/')
-    print(f'  {"[OK]" if stats["has_test_apps"] else "[FAIL]"} test_apps/')
+    print(f'  {"[OK]" if stats["has_main"] else "[FAIL]"} examples/web_daw/main/')
+    print(f'  {"[OK]" if stats["has_test_apps"] else "[FAIL]"} examples/web_daw/')
     print(f'  {"[OK]" if stats["has_tools"] else "[FAIL]"} tools/')
     
     if stats['critical_missing']:
@@ -296,8 +298,8 @@ def main() -> int:
     default_excludes = [
         'build',
         'install',
-        'test_apps/console/build',
-        'test_apps/console/managed_components',
+        'examples/web_daw/build',
+        'examples/web_daw/managed_components',
         'tools/backup/backups',
         '__pycache__',
         'logs',

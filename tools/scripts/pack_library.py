@@ -1,86 +1,75 @@
-import os
+import argparse
 import json
+from pathlib import Path
 
-lib_dir = r"D:\esp32-projects\esp_bytebeat\test_apps\console\dollchan_library"
-output_js = os.path.join(lib_dir, "library_data.js")
 
-library_data = []
+def pack_library(lib_dir: Path, output_js: Path) -> int:
+    library_data = []
 
-# Add a default silence item
-library_data.append({
-    "category": "System",
-    "name": "Silence",
-    "author": "OmniBox",
-    "mode": 0,
-    "speed": 1.0,
-    "code": "0"
-})
+    library_data.append({
+        "category": "System",
+        "name": "Silence",
+        "author": "OmniBox",
+        "mode": 0,
+        "speed": 1.0,
+        "code": "0"
+    })
 
-categories = ["classic", "js-256", "js-1k", "js-big", "floatbeat", "floatbeat-big", "funcbeat", "recent", "all"]
+    for filepath in sorted(lib_dir.rglob("*.txt")):
+        category = filepath.parent.name
+        content = filepath.read_text(encoding="utf-8")
 
-for root, dirs, files in os.walk(lib_dir):
-    for file in files:
-        if file.endswith(".txt"):
-            filepath = os.path.join(root, file)
-            category = os.path.basename(root)
-            
-            with open(filepath, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            name = "Unknown"
-            author = "Unknown"
-            sr = 8000
-            mode_str = "bytebeat"
-            
-            lines = content.split('\n')
-            code_lines = []
-            in_code = False
-            
-            for line in lines:
-                if line.startswith("// Name:"):
-                    name = line.split(":", 1)[1].strip()
-                elif line.startswith("// Author:"):
-                    author = line.split(":", 1)[1].strip()
-                elif line.startswith("// Sample Rate:"):
-                    try:
-                        sr = int(line.split(":", 1)[1].strip())
-                    except:
-                        pass
-                elif line.startswith("// Category:"):
+        name = "Unknown"
+        author = "Unknown"
+        sample_rate = 8000
+        mode_str = "bytebeat"
+
+        for line in content.splitlines():
+            if line.startswith("// Name:"):
+                name = line.split(":", 1)[1].strip()
+            elif line.startswith("// Author:"):
+                author = line.split(":", 1)[1].strip()
+            elif line.startswith("// Sample Rate:"):
+                try:
+                    sample_rate = int(line.split(":", 1)[1].strip())
+                except ValueError:
                     pass
-                elif line.startswith("// Mode:"):
-                    mode_str = line.split(":", 1)[1].strip().lower()
-                else:
-                    if line.startswith("//"):
-                        # Skip other comments at the top? Wait, some code might have comments!
-                        # We just include the full content as the code so the UI can parse the headers!
-                        pass
-            
-            # The Web UI parses the // Mode and // Sample Rate directly from the code!
-            # So we just pass the entire file content as `code`!
-            
-            # Determine mode integer for backward compatibility if needed, but UI reads from comments anyway now!
-            mode_int = 0
-            if 'signed bytebeat' in mode_str:
-                mode_int = 2
-            elif 'floatbeat' in mode_str or 'funcbeat' in mode_str:
-                mode_int = 1
-                
-            speed = round(sr / 48000.0, 4)
-            
-            library_data.append({
-                "category": category,
-                "name": name,
-                "author": author,
-                "mode": mode_int,
-                "speed": speed,
-                "code": content
-            })
+            elif line.startswith("// Mode:"):
+                mode_str = line.split(":", 1)[1].strip().lower()
 
-# Write to JS
-with open(output_js, 'w', encoding='utf-8') as f:
-    f.write("const LIBRARY = ")
-    json.dump(library_data, f, indent=2, ensure_ascii=False)
-    f.write(";\n")
+        mode_int = 2 if "signed bytebeat" in mode_str else 0
+        if "floatbeat" in mode_str or "funcbeat" in mode_str:
+            mode_int = 1
 
-print(f"Packed {len(library_data)} songs into {output_js}")
+        library_data.append({
+            "category": category,
+            "name": name,
+            "author": author,
+            "mode": mode_int,
+            "speed": round(sample_rate / 48000.0, 4),
+            "code": content
+        })
+
+    output_js.write_text(
+        "const LIBRARY = " + json.dumps(library_data, indent=2, ensure_ascii=False) + ";\n",
+        encoding="utf-8"
+    )
+    return len(library_data)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Pack the Bytebeat text library into a JavaScript data file.")
+    default_library = Path(__file__).resolve().parents[2] / "examples" / "web_daw" / "tools" / "dollchan_library"
+    parser.add_argument("library_dir", nargs="?", type=Path, default=default_library)
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
+
+    library_dir = args.library_dir.resolve()
+    output_js = (args.output or library_dir / "library_data.js").resolve()
+    output_js.parent.mkdir(parents=True, exist_ok=True)
+    count = pack_library(library_dir, output_js)
+    print(f"Packed {count} songs into {output_js}")
+
+
+if __name__ == "__main__":
+    main()

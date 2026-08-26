@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 // Precedences
 static int get_precedence(char op) {
@@ -50,15 +51,32 @@ bool bytebeat_compile(const char *equation, bytebeat_program_t *out_program) {
             continue;
         }
         
-        if (isdigit((unsigned char)*p)) {
+        if (isdigit((unsigned char)*p) ||
+            (*p == '-' && isdigit((unsigned char)*(p + 1)))) {
+            const char *number_start = p;
             uint32_t val = 0;
+            bool negative = *p == '-';
+            if (negative) p++;
             while (isdigit((unsigned char)*p)) {
                 val = val * 10 + (*p - '0');
                 p++;
             }
+            bool is_float = false;
+            if (*p == '.') {
+                is_float = true;
+                p++;
+                while (isdigit((unsigned char)*p)) p++;
+            }
             if (!expect_operand || out_program->length >= MAX_BYTECODE_LEN) return false;
-            out_program->instructions[out_program->length].op = OP_PUSH_CONST;
-            out_program->instructions[out_program->length].value = val;
+            if (is_float) {
+                char *number_end = NULL;
+                out_program->instructions[out_program->length].op = OP_PUSH_FLOAT;
+                out_program->instructions[out_program->length].float_value = strtof(number_start, &number_end);
+                if (number_end != p) return false;
+            } else {
+                out_program->instructions[out_program->length].op = OP_PUSH_CONST;
+                out_program->instructions[out_program->length].value = negative ? (0U - val) : val;
+            }
             out_program->length++;
             expect_operand = false;
             continue; // Skip the p++ at the end of loop
@@ -150,6 +168,8 @@ uint8_t bytebeat_execute(const bytebeat_program_t *program, uint32_t t) {
             if (sp < 63) stack[++sp] = t;
         } else if (op == OP_PUSH_CONST) {
             if (sp < 63) stack[++sp] = program->instructions[i].value;
+        } else if (op == OP_PUSH_FLOAT) {
+            if (sp < 63) stack[++sp] = (uint32_t)program->instructions[i].float_value;
         } else {
             // Binary operators
             if (sp < 1) continue; // Stack underflow
@@ -178,4 +198,40 @@ uint8_t bytebeat_execute(const bytebeat_program_t *program, uint32_t t) {
         return (uint8_t)(stack[sp] & 0xFF);
     }
     return 0;
+}
+
+float bytebeat_execute_float(const bytebeat_program_t *program, uint32_t t) {
+    float stack[64];
+    int sp = -1;
+
+    for (uint32_t i = 0; i < program->length; i++) {
+        bytebeat_op_t op = program->instructions[i].op;
+        if (op == OP_PUSH_T) {
+            if (sp < 63) stack[++sp] = (float)t;
+        } else if (op == OP_PUSH_CONST) {
+            if (sp < 63) stack[++sp] = (float)program->instructions[i].value;
+        } else if (op == OP_PUSH_FLOAT) {
+            if (sp < 63) stack[++sp] = program->instructions[i].float_value;
+        } else {
+            if (sp < 1) return 0.0f;
+            float b = stack[sp--];
+            float a = stack[sp--];
+            float result = 0.0f;
+            switch (op) {
+                case OP_ADD: result = a + b; break;
+                case OP_SUB: result = a - b; break;
+                case OP_MUL: result = a * b; break;
+                case OP_DIV: result = (b != 0.0f) ? a / b : 0.0f; break;
+                case OP_MOD: result = (b != 0.0f) ? fmodf(a, b) : 0.0f; break;
+                case OP_AND: result = (float)((uint32_t)a & (uint32_t)b); break;
+                case OP_OR:  result = (float)((uint32_t)a | (uint32_t)b); break;
+                case OP_XOR: result = (float)((uint32_t)a ^ (uint32_t)b); break;
+                case OP_SHL: result = (float)((uint32_t)a << (uint32_t)b); break;
+                case OP_SHR: result = (float)((uint32_t)a >> (uint32_t)b); break;
+                default: return 0.0f;
+            }
+            stack[++sp] = result;
+        }
+    }
+    return sp >= 0 ? stack[sp] : 0.0f;
 }

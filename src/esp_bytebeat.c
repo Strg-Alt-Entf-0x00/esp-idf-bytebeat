@@ -5,6 +5,7 @@
 #include <freertos/queue.h>
 #include <freertos/semphr.h>
 #include <string.h>
+#include <math.h>
 
 #define AUDIO_FRAME_SAMPLES 128
 #define BYTEBEAT_NATIVE_RATE 8000
@@ -61,11 +62,21 @@ static void bytebeat_task(void *arg) {
 
         if (playing) {
             for (int i = 0; i < AUDIO_FRAME_SAMPLES; i++) {
-                // Generate 8-bit sample using VM
-                uint8_t sample_8 = bytebeat_execute(&current_msg.program, t_counter);
-                
-                // Convert 0-255 to signed 16-bit PCM (-32768 to 32767)
-                int16_t sample_16 = (sample_8 - 128) * 256;
+                float sample_value = bytebeat_execute_float(&current_msg.program, t_counter);
+                int32_t sample_32;
+                if (g_config.mode == ESP_BYTEBEAT_MODE_FLOAT) {
+                    if (sample_value > 1.0f) sample_value = 1.0f;
+                    if (sample_value < -1.0f) sample_value = -1.0f;
+                    sample_32 = (int32_t)(sample_value * 32767.0f);
+                } else if (g_config.mode == ESP_BYTEBEAT_MODE_SIGNED) {
+                    sample_32 = ((int32_t)sample_value & 0xFF);
+                    if (sample_32 >= 128) sample_32 -= 256;
+                    sample_32 *= 256;
+                } else {
+                    sample_32 = ((int32_t)sample_value & 0xFF) - 128;
+                    sample_32 *= 256;
+                }
+                int16_t sample_16 = (int16_t)sample_32;
                 
                 // Fade logic (Anti-Click) in fixed-point
                 if (samples_total != 0xFFFFFFFF && samples_played > samples_total - 200) {
@@ -115,6 +126,7 @@ static void bytebeat_task(void *arg) {
 
 esp_err_t esp_bytebeat_init(const esp_bytebeat_config_t *config) {
     if (!config || !config->write_cb || config->target_sample_rate == 0) return ESP_ERR_INVALID_ARG;
+    if (config->mode > ESP_BYTEBEAT_MODE_SIGNED) return ESP_ERR_INVALID_ARG;
     
     if (g_running) return ESP_ERR_INVALID_STATE;
     

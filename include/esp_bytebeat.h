@@ -19,6 +19,12 @@ extern "C" {
  */
 typedef size_t (*bytebeat_write_cb_t)(const int16_t *data, size_t num_bytes);
 
+typedef enum {
+    ESP_BYTEBEAT_MODE_UNSIGNED = 0,
+    ESP_BYTEBEAT_MODE_FLOAT = 1,
+    ESP_BYTEBEAT_MODE_SIGNED = 2
+} esp_bytebeat_mode_t;
+
 /**
  * @brief Configuration for the esp-bytebeat engine.
  */
@@ -27,6 +33,7 @@ typedef struct {
     uint32_t task_priority;         ///< FreeRTOS task priority for the engine.
     uint32_t task_core;             ///< Core ID to pin the task to (0, 1, or tskNO_AFFINITY).
     uint32_t software_volume_q15;   ///< Internal software volume multiplier (0 = mute, 32768 = 100%).
+    esp_bytebeat_mode_t mode;       ///< Sample interpretation mode: 8-bit, float, or signed 8-bit.
     bytebeat_write_cb_t write_cb;   ///< Callback to write audio data.
 } esp_bytebeat_config_t;
 

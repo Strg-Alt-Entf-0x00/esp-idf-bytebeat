@@ -5,6 +5,9 @@ Reusable procedural audio and Bytebeat components for ESP-IDF, with a hardware-s
 ## Components
 
 The repository root is the publishable `esp_bytebeat` component. It provides a small native C bytecode engine and an output callback API. It has no dependency on QuickJS, codecs, I2S, or a particular board.
+The repository root is the publishable `esp_bytebeat` component. It provides a small native C bytecode engine and an output callback API. It has no dependency on QuickJS, codecs, I2S, or a particular board.
+
+The native engine supports unsigned Bytebeat (`0..255`), signed Bytebeat (`-128..127`), and Floatbeat (`-1.0..1.0`). Arithmetic expressions may use the variable `t`, integer or decimal constants, parentheses, `+`, `-`, `*`, `/`, `%`, `&`, `|`, `^`, `<<`, and `>>`.
 
 The `examples/web_daw` application is separate. It adds QuickJS, Web Serial, I2S, and the ES8311 codec to provide a complete DAW firmware.
 
@@ -26,6 +29,28 @@ Include the public API:
 ```
 
 The application supplies `write_cb` in `esp_bytebeat_config_t`; the component does not assume an audio driver or codec.
+
+```c
+static size_t write_pcm(const int16_t *samples, size_t num_bytes)
+{
+  return audio_write(samples, num_bytes);
+}
+
+const esp_bytebeat_config_t config = {
+  .target_sample_rate = 48000,
+  .task_priority = 5,
+  .task_core = 0xFFFFFFFF,
+  .software_volume_q15 = 32768,
+  .mode = ESP_BYTEBEAT_MODE_UNSIGNED,
+  .write_cb = write_pcm,
+};
+
+ESP_ERROR_CHECK(esp_bytebeat_init(&config));
+ESP_ERROR_CHECK(esp_bytebeat_play_string("(t * 5) & (t >> 7)", 0));
+```
+
+Use `ESP_BYTEBEAT_MODE_SIGNED` for signed formulas and `ESP_BYTEBEAT_MODE_FLOAT` for expressions such as `(t % 1000) / 1000.0`.
+The `examples/web_daw` application is separate. It adds QuickJS, Web Serial, I2S, and the ES8311 codec to provide a complete DAW firmware. Its JavaScript engine supports features that are intentionally outside the native component, including `Math.*`, Funcbeat, and arbitrary JavaScript.
 
 ## Web DAW example
 
