@@ -1,7 +1,0 @@
-// Name: untitled
-// Author: aturned777
-// Sample Rate: 32000
-// Category: classic
-// Mode: bytebeat
-
-t>>t/(4+(t>>15)%16)*(1+(3&t>>13))>>(2&t>>11)

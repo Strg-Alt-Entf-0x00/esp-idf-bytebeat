@@ -1,7 +1,0 @@
-// Name: i put a whole bag of jellybeans up my ass
-// Author: rubi
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-([1,0.5,2,0.5,3,0.5,2,0.5,5,0.5,4,0.5,3.5,0.5,4,0.5,7,0.5,6,0.5,7,0.5,8,0.8,8,0.8,8,0.8,8,0.8,8,0.5][(t>>12)%32]*t>>1&191)+(t>>9)&192

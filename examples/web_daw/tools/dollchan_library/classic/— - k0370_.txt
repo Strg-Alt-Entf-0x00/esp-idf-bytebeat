@@ -1,7 +1,0 @@
-// Name: —
-// Author: k0370_
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-((t*t>>9|t*(t>>16))|t>>4)

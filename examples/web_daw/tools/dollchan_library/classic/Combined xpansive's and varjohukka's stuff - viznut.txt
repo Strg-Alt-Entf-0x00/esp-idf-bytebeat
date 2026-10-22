@@ -1,7 +1,0 @@
-// Name: Combined xpansive's and varjohukka's stuff
-// Author: viznut
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>7|t|t>>6)*10+4*(t&t>>13|t>>6)

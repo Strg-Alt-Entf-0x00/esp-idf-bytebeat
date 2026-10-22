@@ -1,7 +1,0 @@
-// Name: good old fractal melody but sin version
-// Author: psubscirbe
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-64*sin((t*(((t>>9)^((t>>9)-1)^1)%13))/10)+128

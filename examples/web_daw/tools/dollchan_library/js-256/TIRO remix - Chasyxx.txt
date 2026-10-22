@@ -1,6 +1,0 @@
-// Name: TIRO remix
-// Author: Chasyxx
-// Sample Rate: 11025
-// Category: js-256
-// Mode: bytebeat
-

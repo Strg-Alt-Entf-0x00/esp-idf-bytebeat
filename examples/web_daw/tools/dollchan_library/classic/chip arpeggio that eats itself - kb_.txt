@@ -1,7 +1,0 @@
-// Name: chip arpeggio that eats itself
-// Author: kb_
-// Sample Rate: 44100
-// Category: classic
-// Mode: bytebeat
-
-(((t>>1)*(15&(0x234568a0>>((t>>8)&28))))|((t>>1)>>(t>>11))^(t>>12))+((t>>4)&(t&24))

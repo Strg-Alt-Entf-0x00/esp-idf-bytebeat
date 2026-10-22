@@ -1,7 +1,0 @@
-// Name: ultra hard beat
-// Author: emelchenko
-// Sample Rate: 32768
-// Category: floatbeat
-// Mode: Floatbeat
-
-sin(cbrt(t&16383)*8)*64*max(0,.5-t/16384%1)+tan(t/((t&t>>12)+1))

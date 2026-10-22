@@ -1,7 +1,0 @@
-// Name: Stand, Back, You...
-// Author: Devan Wolf
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>(t>>(t>>12&15)))>>t

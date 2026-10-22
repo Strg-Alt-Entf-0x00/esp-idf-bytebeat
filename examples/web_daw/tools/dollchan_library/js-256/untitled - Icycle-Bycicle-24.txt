@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Icycle-Bycicle-24
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-

@@ -1,7 +1,0 @@
-// Name: polysine 21 chars fewer
-// Author: May_I_Change_My_Name
-// Sample Rate: 48000
-// Category: floatbeat
-// Mode: Floatbeat
-
-F=i=>i?sin(t*PI/256*i)*(-t/i&8191)/16E3/i+F(i-1):0,F(24)

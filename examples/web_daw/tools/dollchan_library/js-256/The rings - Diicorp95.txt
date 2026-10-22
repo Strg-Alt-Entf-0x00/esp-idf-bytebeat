@@ -1,7 +1,0 @@
-// Name: The rings
-// Author: Diicorp95
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-t/5*0.4^t-t+2**6*cos(2>>t)-(12*tan(t))

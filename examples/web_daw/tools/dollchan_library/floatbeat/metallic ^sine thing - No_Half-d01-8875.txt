@@ -1,7 +1,0 @@
-// Name: metallic ^sine thing
-// Author: No_Half-d01-8875
-// Sample Rate: 32000
-// Category: floatbeat
-// Mode: Floatbeat
-
-sin((t|t>>12^t>>13)/32.35)/(t%65536/3072%4)

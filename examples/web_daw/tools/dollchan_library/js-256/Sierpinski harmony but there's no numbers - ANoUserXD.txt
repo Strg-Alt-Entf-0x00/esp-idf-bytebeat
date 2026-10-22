@@ -1,7 +1,0 @@
-// Name: Sierpinski harmony but there's no numbers
-// Author: ANoUserXD
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-x=t/t,z=x+x,(y=t/z)*(z*z*z+z)&y>>(z*z+z)|y*(z*z+z)&y/z>>(z*z+z)

@@ -1,7 +1,0 @@
-// Name: tri
-// Author: tribute1123
-// Sample Rate: 32768
-// Category: js-256
-// Mode: bytebeat
-
-b=128,hz=((t/128)*b),hz1=hz*(1+(1/((b*2)/(t&451)))),a=(abs(((hz)&255)-128)+abs(((hz1)&255)-128))/2,a*1.99

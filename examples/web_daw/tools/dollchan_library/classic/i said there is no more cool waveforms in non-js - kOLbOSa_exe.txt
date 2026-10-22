@@ -1,7 +1,0 @@
-// Name: i said there is no more cool waveforms in non-js
-// Author: kOLbOSa_exe
-// Sample Rate: 44100
-// Category: classic
-// Mode: bytebeat
-
-t*((4e5/(t>>2^(t>>12))))*2

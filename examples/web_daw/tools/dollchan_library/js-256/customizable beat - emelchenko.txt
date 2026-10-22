@@ -1,7 +1,0 @@
-// Name: customizable beat
-// Author: emelchenko
-// Sample Rate: 48000
-// Category: js-256
-// Mode: bytebeat
-
-a='+ -  +- ++-+ +- ',b=a[(t>>13)%a.length],(b=='+'?cbrt(t&8191)*2&1:b=='-'?round(random()):0)*128

@@ -1,7 +1,0 @@
-// Name: i don't have a name for this
-// Author: SArpnt
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t*3&t>>6)%76

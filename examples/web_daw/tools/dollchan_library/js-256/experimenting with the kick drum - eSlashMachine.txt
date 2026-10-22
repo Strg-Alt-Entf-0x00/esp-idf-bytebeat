@@ -1,7 +1,0 @@
-// Name: experimenting with the kick drum
-// Author: eSlashMachine
-// Sample Rate: 22050
-// Category: js-256
-// Mode: Signed Bytebeat
-
-((tanh(cos(2*cbrt(t%16384)**.3))*100)&(tanh(cos(30*sqrt(t%4096)**.4))*130))/2

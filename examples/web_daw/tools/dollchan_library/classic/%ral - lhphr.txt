@@ -1,7 +1,0 @@
-// Name: %ral
-// Author: lhphr
-// Sample Rate: 22050
-// Category: classic
-// Mode: bytebeat
-
-t>>6^t&t>>9^t>>12|(t<<(t>>6)%4^-t&-t>>13)%128^-t>>1

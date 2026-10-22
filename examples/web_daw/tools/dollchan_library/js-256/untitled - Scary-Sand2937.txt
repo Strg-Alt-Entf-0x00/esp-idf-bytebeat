@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Scary-Sand2937
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-

@@ -1,7 +1,0 @@
-// Name: "an random song i made" c compatible
-// Author: PortablePorcelain
-// Sample Rate: 40960
-// Category: classic
-// Mode: bytebeat
-
-(t*(t&(1<<4+(t>>17&3))+3)>>8)+t

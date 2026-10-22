@@ -1,7 +1,0 @@
-// Name: dubstep_thingy
-// Author: RealZynx92
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-a=t*(t&t>>12)/256,128+sin(a/20.5)*((a>>5)%32)*4

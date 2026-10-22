@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Decent-Manager-6169
-// Sample Rate: 8000
-// Category: floatbeat
-// Mode: bytebeat
-

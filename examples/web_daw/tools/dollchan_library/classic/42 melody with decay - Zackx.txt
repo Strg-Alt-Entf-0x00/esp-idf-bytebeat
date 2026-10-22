@@ -1,7 +1,0 @@
-// Name: 42 melody with decay
-// Author: Zackx
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*((42&t>>10))%256*(-t&2047)/2e3

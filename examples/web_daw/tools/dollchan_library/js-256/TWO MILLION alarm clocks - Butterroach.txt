@@ -1,7 +1,0 @@
-// Name: TWO MILLION alarm clocks
-// Author: Butterroach
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-[t*t/(t>>12&t>>8)<<7|t*(t>>11&t>>6)<<7,t*t/(t>>11&t>>6)<<7|t*(t>>11&t>>6)<<7]

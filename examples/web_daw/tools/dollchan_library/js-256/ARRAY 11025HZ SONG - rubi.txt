@@ -1,7 +1,0 @@
-// Name: ARRAY 11025HZ SONG
-// Author: rubi
-// Sample Rate: 11025
-// Category: js-256
-// Mode: bytebeat
-
-([1,0,2,0,3,0,2.4,0][(t>>12)%8]*t)+([0,128][(t>>12)%2]*random())|t>>3

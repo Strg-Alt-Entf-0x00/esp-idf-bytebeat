@@ -1,7 +1,0 @@
-// Name: Simple Sierpinski Remix of "Giorgio by Moroder" by Daft Punk
-// Author: PrincessPriscillaPT
-// Sample Rate: 31608
-// Category: js-256
-// Mode: bytebeat
-
-((t*2**(([10,,13,,12,,13,17,,10,13,,12,,13,10,10,,13,,12,,13,17,,10,13,,12,,13,,][(t>>12)%32])/12)*2**(([0,-5][(t>>17)%2])/12)|t>>6)-(t>>7)%128)*[1,,1,,1,,1,1,,1,1,,1,,1,1,1,,1,,1,,1,1,,1,1,,1,,1,,][(t>>12)%32]

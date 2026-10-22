@@ -1,7 +1,0 @@
-// Name: Waiver
-// Author: r/bytebeat
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(((t/91)&t)^((t/90)&t))-1

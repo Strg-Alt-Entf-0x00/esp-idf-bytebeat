@@ -1,7 +1,0 @@
-// Name: Sawtooth bass
-// Author: Zackx
-// Sample Rate: 11025
-// Category: js-256
-// Mode: bytebeat
-
-z=[1,0.8865,0.79,0.593][(t>>14)%4],(z*t%100+z*t%100.5+z*t%67)/1.2

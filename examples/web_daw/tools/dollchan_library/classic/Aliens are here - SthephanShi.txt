@@ -1,7 +1,0 @@
-// Name: Aliens are here
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(t&16384?6:5)*(4-(1&t>>8))>>(3&t>>9)|t>>6

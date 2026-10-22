@@ -1,7 +1,0 @@
-// Name: binary cycle
-// Author: PortablePorcelain
-// Sample Rate: 32000
-// Category: js-256
-// Mode: bytebeat
-
-128*(f=t>>10,f.toString(2)[t>>3&15])

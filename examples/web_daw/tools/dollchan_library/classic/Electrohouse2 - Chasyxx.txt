@@ -1,7 +1,0 @@
-// Name: Electrohouse2
-// Author: Chasyxx
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t>>t%(t%2?t&32768?41:t&16384?51:61:34)&(t/9&t/7|t/5&t/3|t|t*3&t*5|t*7&t*9)>>4

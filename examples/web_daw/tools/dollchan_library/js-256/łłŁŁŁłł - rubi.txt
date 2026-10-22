@@ -1,7 +1,0 @@
-// Name: łłŁŁŁłł
-// Author: rubi
-// Sample Rate: 32000
-// Category: js-256
-// Mode: bytebeat
-
-tan(4e4/(t&2**14-1))|(t*(t&2**16?1.05:1)*'12341246'[7&t>>14]&t>>5&t>>10)-1

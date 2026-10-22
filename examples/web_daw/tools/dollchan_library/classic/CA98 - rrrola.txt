@@ -1,7 +1,0 @@
-// Name: CA98
-// Author: rrrola
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(0xCA98CA98>>(t>>9&30)&15)|t>>8

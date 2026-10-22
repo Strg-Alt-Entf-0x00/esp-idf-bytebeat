@@ -1,0 +1,9 @@
+dependencies:
+  # QuickJS removed - using native C engine instead!
+  # espressif/quickjs-ng:
+  #   version: "0.14.0"
+
+  espressif/esp_codec_dev:
+    version: "^1.6.0"
+    rules:
+      - if: "idf_version >=6.0"

@@ -1,7 +1,0 @@
-// Name: printer
-// Author: GDPlayer_1035
-// Sample Rate: 11025
-// Category: js-256
-// Mode: Signed Bytebeat
-
-(((((t&t/900)*t&t)*t/90000000^t)&127)+(sin(t/9000*(t/9000&127))*63)-63)

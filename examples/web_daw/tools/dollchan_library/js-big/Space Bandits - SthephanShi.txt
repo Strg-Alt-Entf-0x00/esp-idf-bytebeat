@@ -1,6 +1,0 @@
-// Name: Space Bandits
-// Author: SthephanShi
-// Sample Rate: 48000
-// Category: js-big
-// Mode: bytebeat
-

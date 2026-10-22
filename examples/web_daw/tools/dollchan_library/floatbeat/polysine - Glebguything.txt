@@ -1,7 +1,0 @@
-// Name: polysine
-// Author: Glebguything
-// Sample Rate: 48000
-// Category: floatbeat
-// Mode: Floatbeat
-
-a=(n)=>sin(t*PI/256*n)%256*(-t/n/4&2047)/2E3/8,a(8)+a(7)+a(6)+a(5)+a(4)+a(3)+a(2)+a(1)

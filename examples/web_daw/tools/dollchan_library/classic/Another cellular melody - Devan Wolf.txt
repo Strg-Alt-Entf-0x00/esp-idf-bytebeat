@@ -1,7 +1,0 @@
-// Name: Another cellular melody
-// Author: Devan Wolf
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t<<1&t*3&-t>>5&t>>10)-1

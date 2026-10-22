@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: aturned777
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

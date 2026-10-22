@@ -1,7 +1,0 @@
-// Name: Numbers Not In Sight
-// Author: lhphr
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-((~t)-(t))*((x=t/t)-(t>>(z=(y=x+x)**y*y+y))%y)^(t*(t>>z))%(y**y**y)*-t>>z

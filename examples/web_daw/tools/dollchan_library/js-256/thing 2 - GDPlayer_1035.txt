@@ -1,7 +1,0 @@
-// Name: thing 2
-// Author: GDPlayer_1035
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-sin(((t*(t^(t/2&(t/2))&t/4)&t/90)^t)/22050)*128+128

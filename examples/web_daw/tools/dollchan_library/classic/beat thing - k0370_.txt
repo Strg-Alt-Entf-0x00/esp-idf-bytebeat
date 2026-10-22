@@ -1,7 +1,0 @@
-// Name: beat thing
-// Author: k0370_
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-((t*6&t>>5|127*t>>4)>>t/64&t>>5|t>>4|t>>t/64)

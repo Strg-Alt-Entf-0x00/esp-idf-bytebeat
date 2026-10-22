@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: 1583736
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-

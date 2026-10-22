@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: TrashImpossible3699
-// Sample Rate: 8000
-// Category: js-1k
-// Mode: bytebeat
-

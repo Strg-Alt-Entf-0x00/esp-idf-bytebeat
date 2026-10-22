@@ -1,7 +1,0 @@
-// Name: shepard's tone
-// Author: emelchenko
-// Sample Rate: 32000
-// Category: floatbeat
-// Mode: Floatbeat
-
-f=i=>i&&sin(t*1.5**i/256*((t>>16&7)/16+1))+f(i-1),f(16)/16

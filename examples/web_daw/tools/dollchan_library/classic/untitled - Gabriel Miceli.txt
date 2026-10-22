@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Gabriel Miceli
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Paralax
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

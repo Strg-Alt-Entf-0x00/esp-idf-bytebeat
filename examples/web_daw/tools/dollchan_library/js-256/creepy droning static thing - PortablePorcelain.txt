@@ -1,7 +1,0 @@
-// Name: creepy droning static thing
-// Author: PortablePorcelain
-// Sample Rate: 22050
-// Category: js-256
-// Mode: Signed Bytebeat
-
-sin(t*Math.PI/255+sin(t*Math.PI/128)*(t/(65536+(16384*Math.random()))))*64

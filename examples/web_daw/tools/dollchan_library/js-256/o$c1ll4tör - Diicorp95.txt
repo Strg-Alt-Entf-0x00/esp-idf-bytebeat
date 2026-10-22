@@ -1,7 +1,0 @@
-// Name: o$c1ll4tör
-// Author: Diicorp95
-// Sample Rate: 44100
-// Category: js-256
-// Mode: Signed Bytebeat
-
-127*sin(t/20.5)&63*cos(t/27.25)

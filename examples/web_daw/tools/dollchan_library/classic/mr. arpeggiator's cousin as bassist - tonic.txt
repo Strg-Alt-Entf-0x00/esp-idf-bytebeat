@@ -1,7 +1,0 @@
-// Name: mr. arpeggiator's cousin as bassist
-// Author: tonic
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t/4&0xf4)>>t/((t>>14&3)+4)

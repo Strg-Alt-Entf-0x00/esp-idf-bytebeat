@@ -1,7 +1,0 @@
-// Name: untitled
-// Author: viznut
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(((t>>12)|(t>>8))&(63&(t>>4)))

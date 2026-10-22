@@ -1,7 +1,0 @@
-// Name: Robotik
-// Author: kOLbOSa_exe
-// Sample Rate: 32000
-// Category: classic
-// Mode: bytebeat
-
-t*(6+(~t>>17&3))/6^t*(6+(~t>>17&3))*(1-1/(1+(t>>14^t>>13)&6))

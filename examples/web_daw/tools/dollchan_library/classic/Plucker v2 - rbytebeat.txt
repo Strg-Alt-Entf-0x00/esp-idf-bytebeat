@@ -1,7 +1,0 @@
-// Name: Plucker v2
-// Author: r/bytebeat
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-((t/4)>>t/4)|(t>>2)

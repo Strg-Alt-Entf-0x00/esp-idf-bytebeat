@@ -1,7 +1,0 @@
-// Name: H_YPN0T1Z3%
-// Author: absolute197
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>3&1)*t>>3^t/128*t

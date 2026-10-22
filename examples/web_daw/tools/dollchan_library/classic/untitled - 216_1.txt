@@ -1,7 +1,0 @@
-// Name: untitled
-// Author: 216
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(t^t+(t>>15|1)^(t-1280^t)>>10)

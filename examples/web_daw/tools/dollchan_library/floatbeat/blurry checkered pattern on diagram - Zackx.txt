@@ -1,7 +1,0 @@
-// Name: blurry checkered pattern on diagram
-// Author: Zackx
-// Sample Rate: 32000
-// Category: floatbeat
-// Mode: Floatbeat
-
-sin(t*PI/32)*sin(t*PI/8192)

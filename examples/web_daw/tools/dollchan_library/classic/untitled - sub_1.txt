@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: sub
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

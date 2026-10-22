@@ -1,7 +1,0 @@
-// Name: morse code named as beat
-// Author: kOLbOSa_exe
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-((((t>>8)%8*t>>(t>>12)%12)&32)*t>>2)+((((4e3)+50)/(t&4095))&(t>>6|t>>2*t*t)*t)&~t>>4

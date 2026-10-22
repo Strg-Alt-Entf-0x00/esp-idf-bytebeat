@@ -1,7 +1,0 @@
-// Name: the 42 melody
-// Author: 
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(42&t>>10)

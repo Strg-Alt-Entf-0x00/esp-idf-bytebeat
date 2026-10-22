@@ -1,7 +1,0 @@
-// Name: sparta c thingy
-// Author: hcdphobe
-// Sample Rate: 7680
-// Category: classic
-// Mode: bytebeat
-
-(t%131072>98304?(1+(t>>11&3))*2:t%262144>32768&&t>>11&1?-t&32768?4:3:2)*t/4%(t&8192?48:t&16384?57:51)*(t%262144<32768?-t>>11&1:1)*4&128

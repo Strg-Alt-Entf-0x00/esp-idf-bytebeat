@@ -1,7 +1,0 @@
-// Name: high rhythm thing
-// Author: k0370_
-// Sample Rate: 32000
-// Category: classic
-// Mode: bytebeat
-
-(t>>(t>>13)*t/127)|t>>4

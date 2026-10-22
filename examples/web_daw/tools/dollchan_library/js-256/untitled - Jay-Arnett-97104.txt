@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Jay-Arnett-97104
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-

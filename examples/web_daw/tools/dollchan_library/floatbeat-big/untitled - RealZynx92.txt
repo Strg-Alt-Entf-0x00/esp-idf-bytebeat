@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: RealZynx92
-// Sample Rate: 8000
-// Category: floatbeat-big
-// Mode: bytebeat
-

@@ -1,7 +1,0 @@
-// Name: The fall of Derp Herp
-// Author: marmakoide
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(0x13371337>>(t>>13&27)&127)|t>>4|t<<5

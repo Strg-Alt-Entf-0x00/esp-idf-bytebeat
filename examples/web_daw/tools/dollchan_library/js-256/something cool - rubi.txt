@@ -1,9 +1,0 @@
-// Name: something cool
-// Author: rubi
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-t/=4.7,
-(x=[4,2,1,0.5][(t>>10)%4]*t,
-(t*(t&16384?x:t&8192?3:4)&127)+(x&128)|t>>3)/2

@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: k0370_
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

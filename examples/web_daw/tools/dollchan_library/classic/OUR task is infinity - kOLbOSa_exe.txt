@@ -1,7 +1,0 @@
-// Name: OUR task is infinity
-// Author: kOLbOSa_exe
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(((t>>11&(t>>12))*(t>>8&(t>>16)))%34)+4e5/(t&4095)

@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: lhphr
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

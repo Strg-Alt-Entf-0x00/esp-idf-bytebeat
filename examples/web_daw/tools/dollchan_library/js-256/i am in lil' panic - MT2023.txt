@@ -1,7 +1,0 @@
-// Name: i am in lil' panic
-// Author: MT2023
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-((t*(t>>12|t>>11|t>>10)^-t)&255)/4+sin(sqrt(t%16384))*32+32+random()*64*(1-t/4%2048/2048)*[0,1][(t>>14)%2]

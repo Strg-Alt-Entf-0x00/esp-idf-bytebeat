@@ -1,7 +1,0 @@
-// Name: ɪɴɗʊʂʈɾɪʌʟɪʈɤ
-// Author: kOLbOSa_exe
-// Sample Rate: 32000
-// Category: classic
-// Mode: bytebeat
-
-(t*(((t>>13)%8)+1))&t*((t>>10&4|t>>12&6|t>>16&12)&6|((t>>18)%8))-(((-t>>16)%4)*9)

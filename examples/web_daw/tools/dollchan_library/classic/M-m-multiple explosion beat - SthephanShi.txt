@@ -1,7 +1,0 @@
-// Name: M-m-multiple explosion beat
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>4)*(t>>2)|t>>(t>>12)%4

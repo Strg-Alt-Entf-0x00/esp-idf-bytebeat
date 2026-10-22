@@ -1,7 +1,0 @@
-// Name: chaotic craziness
-// Author: emelchenko
-// Sample Rate: 22050
-// Category: classic
-// Mode: bytebeat
-
-(t^t>>12)*t>>8

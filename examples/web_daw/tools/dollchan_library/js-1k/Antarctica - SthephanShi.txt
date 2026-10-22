@@ -1,6 +1,0 @@
-// Name: Antarctica
-// Author: SthephanShi
-// Sample Rate: 44100
-// Category: js-1k
-// Mode: bytebeat
-

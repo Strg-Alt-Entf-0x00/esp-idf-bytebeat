@@ -1,7 +1,0 @@
-// Name: badbeats and safe square edition
-// Author: psubscirbe
-// Sample Rate: 44100
-// Category: classic
-// Mode: bytebeat
-
-t*((0xbadbea75>>((t>>12)&30)&3)*0.25*(0x5afe5>>((t>>16)&28)&3))&128

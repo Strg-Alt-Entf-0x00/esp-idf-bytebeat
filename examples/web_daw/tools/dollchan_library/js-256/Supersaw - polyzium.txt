@@ -1,7 +1,0 @@
-// Name: Supersaw
-// Author: polyzium
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-(t*.98%128+t%128+t*.99%127+t%127+t*.97%129+t%129+t*.96%126+t%126+t*.97%130+t%130)*.20

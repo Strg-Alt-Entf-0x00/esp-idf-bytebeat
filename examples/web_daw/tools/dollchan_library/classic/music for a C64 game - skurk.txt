@@ -1,7 +1,0 @@
-// Name: music for a C64 game
-// Author: skurk
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(t>>((t&4096)?((t*t)/4096):(t/4096)))|(t<<(t/256))|(t>>4)

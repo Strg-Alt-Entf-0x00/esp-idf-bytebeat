@@ -1,7 +1,0 @@
-// Name: bunge jumper
-// Author: sean
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t*5)*((t>>8)%((t>>12)%9))%((((t/4)>>12)*16)%256)|(t)%32

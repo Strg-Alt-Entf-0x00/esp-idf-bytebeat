@@ -1,7 +1,0 @@
-// Name: Glissando
-// Author: r/bytebeat
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t*t)/(t>>13 ^ t>>8)

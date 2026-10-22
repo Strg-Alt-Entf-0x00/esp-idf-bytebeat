@@ -1,7 +1,0 @@
-// Name: Lemmings March
-// Author: marmakoide
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>5)|(t<<4)|((t&1023)^1981)|((t-67)>>4)

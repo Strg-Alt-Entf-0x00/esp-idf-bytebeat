@@ -1,7 +1,0 @@
-// Name: WARP_TUNNEL
-// Author: Chasyxx
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-((t*2)+2)^(t*(1<<(((t>>8)^(t>>8)+(t>>16))+1)%7))

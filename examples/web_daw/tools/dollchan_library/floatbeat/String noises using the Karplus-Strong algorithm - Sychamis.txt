@@ -1,7 +1,0 @@
-// Name: String noises using the Karplus-Strong algorithm
-// Author: Sychamis
-// Sample Rate: 48000
-// Category: floatbeat
-// Mode: Floatbeat
-
-f=436,t==0?b=Array.from({length:f},()=>random()):(b[t%f]=(b[t%f]+b[(t-1)%f])/2)*2-1

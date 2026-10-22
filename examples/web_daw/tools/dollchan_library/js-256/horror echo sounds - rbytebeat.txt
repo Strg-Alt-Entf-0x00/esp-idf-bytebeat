@@ -1,7 +1,0 @@
-// Name: horror echo sounds
-// Author: r/bytebeat
-// Sample Rate: 32000
-// Category: js-256
-// Mode: bytebeat
-
-t*=64,sin(t)*(t>>12)&128

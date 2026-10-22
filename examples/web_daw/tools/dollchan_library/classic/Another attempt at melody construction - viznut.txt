@@ -1,7 +1,0 @@
-// Name: Another attempt at melody construction
-// Author: viznut
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t*((3+(1^t>>10&5))*(5+(3&t>>14))))>>(t>>8&3)

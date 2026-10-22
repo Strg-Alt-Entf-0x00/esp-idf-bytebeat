@@ -1,7 +1,0 @@
-// Name: :arp
-// Author: lhphr
-// Sample Rate: 44100
-// Category: classic
-// Mode: bytebeat
-
-((t>>(1+(t>>18)%2))%256*(t%(4+((t>>15)%8))))

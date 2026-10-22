@@ -1,7 +1,0 @@
-// Name: "Harmony". Based off of mu6k's "Long Line Theory"
-// Author: r/bytebeat
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-t%50.01+t%40.1+t%30.1+t%60.01

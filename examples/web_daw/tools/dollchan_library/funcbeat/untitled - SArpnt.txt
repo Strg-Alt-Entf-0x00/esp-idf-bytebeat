@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: SArpnt
-// Sample Rate: 8000
-// Category: funcbeat
-// Mode: bytebeat
-

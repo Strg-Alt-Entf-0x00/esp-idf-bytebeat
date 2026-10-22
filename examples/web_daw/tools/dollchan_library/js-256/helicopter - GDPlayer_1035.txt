@@ -1,7 +1,0 @@
-// Name: helicopter
-// Author: GDPlayer_1035
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-(((t%round(t/900)&-t*2)^t/900)/3)

@@ -1,7 +1,0 @@
-// Name: Send in the Clowns (if that makes it stop) 
-// Author: GolezTrol
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t>>4|(t>>12)+(222&(t*(1+(7685152>>(t>>12)&15)/8)))

@@ -1,7 +1,0 @@
-// Name: rhythmic thing
-// Author: SArpnt
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*2>>(t*4.5>>4)

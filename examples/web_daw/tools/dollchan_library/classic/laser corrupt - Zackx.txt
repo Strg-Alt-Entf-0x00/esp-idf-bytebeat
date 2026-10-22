@@ -1,7 +1,0 @@
-// Name: laser corrupt
-// Author: Zackx
-// Sample Rate: 44100
-// Category: classic
-// Mode: bytebeat
-
-t/(t%(127&t>>(3&t>>15)>>5)>>(3&t>>14))

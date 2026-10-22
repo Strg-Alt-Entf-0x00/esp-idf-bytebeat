@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Romash
-// Sample Rate: 8000
-// Category: funcbeat
-// Mode: bytebeat
-

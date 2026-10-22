@@ -1,7 +1,0 @@
-// Name: morse code thing
-// Author: MT2023
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-t*((t>>9&t>>12)-(3&t>>9)&64)

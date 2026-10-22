@@ -1,7 +1,0 @@
-// Name: POW techno
-// Author: Devan Wolf
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-Math.pow((t>>(t>>12&1))&65535,(t>>10&3)+1)|(t<<4&16383)/(t>>5&127)

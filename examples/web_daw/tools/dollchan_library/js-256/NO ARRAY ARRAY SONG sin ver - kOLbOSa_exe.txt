@@ -1,7 +1,0 @@
-// Name: NO ARRAY ARRAY SONG sin ver
-// Author: kOLbOSa_exe
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-sin((((t/t+(((t>>12)%6))+((t>>16)%3))))*t>>4)*32+128

@@ -1,7 +1,0 @@
-// Name: Tim Ave Music
-// Author: bytebeat8khz
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-(t*(t>>12&13^2|t>>10&9)|t>>2)|3e4/(t%4096)

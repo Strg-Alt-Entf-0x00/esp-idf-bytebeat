@@ -1,7 +1,0 @@
-// Name: Cat-girl (over-simplified)
-// Author: Firstnameiskowitz
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-a=16384,t%=a*8,(a*2>t?8:a*5>t?9:8)*t|t/4+(a*4>t?13:a*6>t?12:13)*t|t/8|t>>5

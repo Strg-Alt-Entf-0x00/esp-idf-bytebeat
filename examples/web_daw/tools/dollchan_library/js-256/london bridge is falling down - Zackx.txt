@@ -1,7 +1,0 @@
-// Name: london bridge is falling down
-// Author: Zackx
-// Sample Rate: 48000
-// Category: js-256
-// Mode: bytebeat
-
-t*2**(parseInt('KKKMKKIIHHIIKKKKFFHHIIIIHHIIKKKKKKKMKKIIHHIIKKKKFFFFKKKKHHDDDDDD'[63&t/1.45>>12],36)/12)*1.31&128

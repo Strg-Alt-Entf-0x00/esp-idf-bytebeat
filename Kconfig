@@ -1,0 +1,15 @@
+menu "ESP Bytebeat Configuration"
+
+    config ESP_BYTEBEAT_USE_DSP
+        bool "Use ESP-DSP optimized math functions"
+        default y
+        help
+            Enable hardware-accelerated math functions via ESP-DSP library.
+            This provides 3-5x speedup for trigonometric operations (sin, cos, tan)
+            and other math functions (sqrt, etc).
+            
+            Supported chips: ESP32, ESP32-S3, ESP32-P4
+            
+            If disabled, standard C math library will be used.
+
+endmenu

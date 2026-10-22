@@ -1,7 +1,0 @@
-// Name: the danger zone
-// Author: rubi
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-[1,0.5,1,1.2,1,0.5,1,0.9,1,0.5,1,1.2,4,3.5,4,3][(t>>13)%16]*t&128

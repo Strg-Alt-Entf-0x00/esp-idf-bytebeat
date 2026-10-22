@@ -1,7 +1,0 @@
-// Name: C compatible instruments
-// Author: Zackx
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t>>3&127|t>>4&128|t>>3&128|(t&4096?t&8192?64:0:0)

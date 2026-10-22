@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: potasmic
-// Sample Rate: 8000
-// Category: funcbeat
-// Mode: bytebeat
-

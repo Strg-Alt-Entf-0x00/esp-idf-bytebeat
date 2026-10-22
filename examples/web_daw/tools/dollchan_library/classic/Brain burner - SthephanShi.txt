@@ -1,7 +1,0 @@
-// Name: Brain burner
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-129*t%(t>>7)

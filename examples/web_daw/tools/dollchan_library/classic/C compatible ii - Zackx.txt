@@ -1,7 +1,0 @@
-// Name: C compatible ii
-// Author: Zackx
-// Sample Rate: 32000
-// Category: classic
-// Mode: bytebeat
-
-t*(15&t>>10)|t>>6^t>>8

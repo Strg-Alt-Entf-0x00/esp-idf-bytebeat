@@ -1,7 +1,0 @@
-// Name: "fractal trees", 216's version
-// Author: 216
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t|t%255|t%257

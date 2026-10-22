@@ -1,7 +1,0 @@
-// Name: stimmer but its all sawtooth
-// Author: Decent-Manager-6169
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t/2*(4|7&t>>13)>>(~t>>11&1)&127)+(t*(t>>11&t>>13)*(~t>>9&3)&127)

@@ -1,7 +1,0 @@
-// Name: Tr4nsf0rm remix
-// Author: absolute197
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-a=([1.6,2.4,3,3.6][(t>>12)%4]*[0.6,0.4,0.8,0.5][(t>>15)%4])*t,b=(a%32)+t>>a/4,c=(b%t)+a,[(t>>a/8)+b,c]

@@ -1,7 +1,0 @@
-// Name: Extremely loud grinding machine
-// Author: r/bytebeat
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t/(t%(t>>8|t>>16))

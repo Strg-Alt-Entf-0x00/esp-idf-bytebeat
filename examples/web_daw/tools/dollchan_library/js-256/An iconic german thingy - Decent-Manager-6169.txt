@@ -1,7 +1,0 @@
-// Name: An iconic german thingy
-// Author: Decent-Manager-6169
-// Sample Rate: 48000
-// Category: js-256
-// Mode: bytebeat
-
-v=-9e9,t*.7*2**([0,0,0,1,3,v,3,v,3,v,8,v,8,v,12,v,12,12,12,10,8,v,v,v,v,v,v,v,7,v,8,v,10,v,v,v,v,v,v,v,12,12,12,10,8,v][t*.7>>13&63]/12)

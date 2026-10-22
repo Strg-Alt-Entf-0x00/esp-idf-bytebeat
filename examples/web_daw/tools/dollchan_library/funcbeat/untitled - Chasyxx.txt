@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Chasyxx
-// Sample Rate: 8000
-// Category: funcbeat
-// Mode: bytebeat
-

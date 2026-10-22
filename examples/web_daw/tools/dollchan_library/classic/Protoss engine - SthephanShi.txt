@@ -1,7 +1,0 @@
-// Name: Protoss engine
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-2*(-t%128|t%130)

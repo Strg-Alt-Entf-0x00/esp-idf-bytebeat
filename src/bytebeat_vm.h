@@ -22,7 +22,36 @@ typedef enum {
     OP_OR,
     OP_XOR,
     OP_SHL,
-    OP_SHR
+    OP_SHR,
+    // Math functions
+    OP_SIN,
+    OP_COS,
+    OP_TAN,
+    OP_SQRT,
+    OP_ABS,
+    OP_FLOOR,
+    OP_CEIL,
+    OP_ROUND,
+    OP_POW,
+    OP_MIN,
+    OP_MAX,
+    OP_LOG,
+    OP_EXP,
+    // Comparison operators
+    OP_LT,           // Less than
+    OP_GT,           // Greater than
+    OP_LE,           // Less or equal
+    OP_GE,           // Greater or equal
+    OP_EQ,           // Equal
+    OP_NE,           // Not equal
+    // Logical operators
+    OP_LAND,         // Logical AND
+    OP_LOR,          // Logical OR
+    OP_LNOT,         // Logical NOT
+    // Additional
+    OP_NEG,          // Unary negation
+    OP_TERNARY_A,    // ? in ternary operator
+    OP_TERNARY_B     // : in ternary operator
 } bytebeat_op_t;
 
 // A single instruction in the bytecode
@@ -32,7 +61,7 @@ typedef struct {
     float float_value; // Only used for OP_PUSH_FLOAT
 } bytebeat_inst_t;
 
-#define MAX_BYTECODE_LEN 128
+#define MAX_BYTECODE_LEN 256
 
 // The compiled program structure
 typedef struct {
@@ -63,6 +92,19 @@ bool bytebeat_compile(const char *equation, bytebeat_program_t *out_program);
 uint8_t IRAM_ATTR bytebeat_execute(const bytebeat_program_t *program, uint32_t t);
 
 float bytebeat_execute_float(const bytebeat_program_t *program, uint32_t t);
+
+/**
+ * @brief Executes bytecode and returns stereo float samples.
+ * 
+ * For stereo support: Use two separate channels or comma operator.
+ * Example: "sin(t/100), cos(t/100)" returns [left, right]
+ * 
+ * @param program The compiled program.
+ * @param t The current time variable.
+ * @param left Output left channel.
+ * @param right Output right channel.
+ */
+void bytebeat_execute_stereo(const bytebeat_program_t *program, uint32_t t, float *left, float *right);
 
 #ifdef __cplusplus
 }

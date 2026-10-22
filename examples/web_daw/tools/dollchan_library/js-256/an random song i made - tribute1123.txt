@@ -1,7 +1,0 @@
-// Name: an random song i made
-// Author: tribute1123
-// Sample Rate: 40960
-// Category: js-256
-// Mode: bytebeat
-
-(t/256)*(t&(2**[4,5,6,7][(t>>17)&3])+3)+t

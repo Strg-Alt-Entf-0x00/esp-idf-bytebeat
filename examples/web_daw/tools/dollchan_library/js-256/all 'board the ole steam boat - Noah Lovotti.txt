@@ -1,7 +1,0 @@
-// Name: all 'board the ole steam boat
-// Author: Noah Lovotti
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-v="4568"[t>>11&3],w=(t>>5|t>>v^sin(t/8/(v/(((t>>12&t>>14)&8)+((t>>14|t>>11)&1))))*29-100),w+(v*((t*v/7*4&t>>11)|w))

@@ -1,7 +1,0 @@
-// Name: I'm late to the party
-// Author: rrrola
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(4+(t>>9)%3)&t/3>>7&224

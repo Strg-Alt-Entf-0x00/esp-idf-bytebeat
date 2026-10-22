@@ -1,7 +1,0 @@
-// Name: e
-// Author: MeWhen-I-StubMyToe
-// Sample Rate: 44100
-// Category: classic
-// Mode: bytebeat
-
-((2*t&255)*(-t>>6&t>>7)>>8|t&t>>1)|t&t>>1

@@ -1,7 +1,0 @@
-// Name: Major scale
-// Author: ChrisRM380
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-t*4*[1,1.13,1.275,1/0.75,1.5,1.7,1.875,2][(t>>12)%8]

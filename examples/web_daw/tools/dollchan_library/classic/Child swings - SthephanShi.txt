@@ -1,7 +1,0 @@
-// Name: Child swings
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t>>9&2*t&10*t|t>>5&6*t

@@ -1,7 +1,0 @@
-// Name: Alien dungeon
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(t&16384?7:5)*(3+(3&t>>14))>>(3&t>>9)|t>>6

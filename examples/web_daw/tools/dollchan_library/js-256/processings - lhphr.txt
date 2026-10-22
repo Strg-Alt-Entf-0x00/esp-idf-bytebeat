@@ -1,7 +1,0 @@
-// Name: processings
-// Author: lhphr
-// Sample Rate: 22050
-// Category: js-256
-// Mode: bytebeat
-
-(t**(1+(t>>8)/(t/2%(2-4*(x=(t>>17&1))))%(2+14*x))**(t/127%(2-x)))

@@ -1,7 +1,0 @@
-// Name: untitled
-// Author: George
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-20 * t*t* (t >>11)/7

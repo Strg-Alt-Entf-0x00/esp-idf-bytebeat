@@ -1,7 +1,0 @@
-// Name: just focus
-// Author: Zackx
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t*(2&t>>10|(t>>10&9)-4*(3&t>>15)+3)&128)*(-t>>2&255)>>7

@@ -1,7 +1,0 @@
-// Name: Cat-girl
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-17*t|(t>>2)+(t&32768?13:14)*t|t>>3|t>>5

@@ -1,7 +1,0 @@
-// Name: It wont stop
-// Author: r/bytebeat
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*((t/401)^(t/400))

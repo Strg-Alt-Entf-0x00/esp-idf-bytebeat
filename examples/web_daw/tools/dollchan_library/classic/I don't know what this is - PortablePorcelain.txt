@@ -1,7 +1,0 @@
-// Name: I don't know what this is
-// Author: PortablePorcelain
-// Sample Rate: 9000
-// Category: classic
-// Mode: bytebeat
-
-t<<(t>>1)%(1<<(((t>>6&t>>10)&63)*7>>3))^t>>5

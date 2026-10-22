@@ -1,7 +1,0 @@
-// Name: YAAAAY
-// Author: Dr_Dogan420
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t*43532>>233)*(t>>325)|t>>2543

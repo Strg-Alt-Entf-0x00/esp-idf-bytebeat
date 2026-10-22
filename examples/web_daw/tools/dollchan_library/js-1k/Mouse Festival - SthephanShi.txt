@@ -1,6 +1,0 @@
-// Name: Mouse Festival
-// Author: SthephanShi
-// Sample Rate: 32000
-// Category: js-1k
-// Mode: bytebeat
-

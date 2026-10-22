@@ -1,7 +1,0 @@
-// Name: Altered running man
-// Author: SArpnt
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-t*(1+(5&t>>10))*(3+(t>>17&1?(2^2&t>>14)/3:3&(t>>13)+1))>>(3&t>>9)

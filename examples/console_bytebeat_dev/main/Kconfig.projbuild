@@ -1,0 +1,65 @@
+menu "Bytebeat Console Configuration"
+
+    config DAW_SAMPLE_RATE
+        int "Audio Sample Rate (Hz)"
+        default 48000
+        help
+            The target sample rate for the I2S output and C bytecode VM evaluation.
+
+    config DAW_CHUNK_SIZE
+        int "Audio Chunk Size (Samples per render)"
+        default 512
+        help
+            Number of samples processed by the C VM per iteration. 
+            Smaller sizes reduce latency but increase context switching overhead.
+
+    config DAW_NUM_BUFFERS
+        int "Number of Ring Buffers"
+        default 40
+        help
+            Number of audio chunks allocated in PSRAM to prevent I2S underflow 
+            during heavy formula generation.
+
+    config DAW_JS_CORE_ID
+        int "Bytebeat Worker Core ID"
+        default 0
+        help
+            Which CPU core the Bytebeat C engine runs on.
+
+    config DAW_COORD_CORE_ID
+        int "Audio Coordinator Core ID"
+        default 1
+        help
+            Which CPU core the Audio Coordinator (I2S writer) runs on.
+
+    menu "Hardware Pins"
+        config DAW_I2S_MCLK_GPIO
+            int "I2S Master Clock (MCLK) GPIO"
+            default 13
+
+        config DAW_I2S_BCLK_GPIO
+            int "I2S Bit Clock (BCLK) GPIO"
+            default 12
+
+        config DAW_I2S_WS_GPIO
+            int "I2S Word Select (WS) GPIO"
+            default 10
+
+        config DAW_I2S_DOUT_GPIO
+            int "I2S Data Out (DOUT) GPIO"
+            default 9
+
+        config DAW_I2C_SDA_GPIO
+            int "I2C SDA GPIO (ES8311 Codec)"
+            default 7
+
+        config DAW_I2C_SCL_GPIO
+            int "I2C SCL GPIO (ES8311 Codec)"
+            default 8
+
+        config DAW_PA_PIN_GPIO
+            int "Power Amplifier Enable GPIO"
+            default 53
+    endmenu
+
+endmenu

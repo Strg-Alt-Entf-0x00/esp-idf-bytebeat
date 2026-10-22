@@ -1,7 +1,0 @@
-// Name: Explosive beat
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>4)*(t>>3)|t>>(t&4096?3:2)

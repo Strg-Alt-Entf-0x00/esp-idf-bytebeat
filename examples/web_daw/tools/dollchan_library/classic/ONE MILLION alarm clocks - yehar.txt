@@ -1,7 +1,0 @@
-// Name: ONE MILLION alarm clocks
-// Author: yehar
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*t/(t>>12&t>>8)<<7

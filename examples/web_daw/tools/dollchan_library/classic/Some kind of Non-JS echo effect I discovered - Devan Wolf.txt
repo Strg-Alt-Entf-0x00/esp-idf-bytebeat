@@ -1,7 +1,0 @@
-// Name: Some kind of Non-JS echo effect I discovered?
-// Author: Devan Wolf
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-((t*(t>>12))<<(-t>>10&7))&-t>>2

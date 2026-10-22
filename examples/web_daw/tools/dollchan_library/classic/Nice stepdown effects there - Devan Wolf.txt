@@ -1,7 +1,0 @@
-// Name: Nice stepdown effects there
-// Author: Devan Wolf
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t*(t>>(t>>10&7)&t>>12)

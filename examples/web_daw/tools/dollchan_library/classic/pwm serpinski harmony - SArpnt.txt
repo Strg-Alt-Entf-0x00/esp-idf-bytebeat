@@ -1,7 +1,0 @@
-// Name: pwm serpinski harmony
-// Author: SArpnt
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-t&(t>>7)-t&t>>8

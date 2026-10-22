@@ -1,7 +1,0 @@
-// Name: industrial doom
-// Author: mirageofher
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-(t >> (t/666) || (3*t/16 + t*16)) | (((0-sin(t))*(t/2)))

@@ -1,7 +1,0 @@
-// Name: 9) SADLY
-// Author: Anonymous from russian imageboards
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-((t*4>>43|t*4>>4)*43)

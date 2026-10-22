@@ -1,7 +1,0 @@
-// Name: ( ͡° ͜ʖ ͡°)
-// Author: rubi
-// Sample Rate: 11025
-// Category: js-256
-// Mode: bytebeat
-
-([sin(t>>3),2,sin(t),2,sin(t>>3),2,sin(t),2,sin(t>>3),2,sin(t),2,sin(t>>3),2,sin(t),3][(t>>11)%16]*t&t>>3)-20

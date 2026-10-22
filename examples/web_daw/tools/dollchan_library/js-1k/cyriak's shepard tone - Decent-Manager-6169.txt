@@ -1,6 +1,0 @@
-// Name: cyriak's shepard tone
-// Author: Decent-Manager-6169
-// Sample Rate: 128000
-// Category: js-1k
-// Mode: bytebeat
-

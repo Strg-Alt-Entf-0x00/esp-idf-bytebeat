@@ -1,6 +1,0 @@
-// Name: Mountain Road
-// Author: SthephanShi
-// Sample Rate: 44100
-// Category: floatbeat-big
-// Mode: Floatbeat
-

@@ -1,7 +1,0 @@
-// Name: Duck Hunt
-// Author: Diicorp95
-// Sample Rate: 11025
-// Category: classic
-// Mode: bytebeat
-
-((t>>9^(t>>9)-1^1)%13*t&31)*(2+(t>>4))

@@ -1,7 +1,0 @@
-// Name: I couldnt think of a cool bytebeat to make so I made this
-// Author: psubscirbe
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-((t*(t&t>>11))&64)+((3e3/(t&4095)&1)*100)

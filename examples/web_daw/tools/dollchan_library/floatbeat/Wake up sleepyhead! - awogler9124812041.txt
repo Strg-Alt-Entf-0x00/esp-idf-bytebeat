@@ -1,7 +1,0 @@
-// Name: Wake up sleepyhead!
-// Author: awogler9124812041
-// Sample Rate: 48000
-// Category: floatbeat
-// Mode: Floatbeat
-
-sin(t/2)*(t>>11&1)*(t>>15&1)

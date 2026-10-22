@@ -1,7 +1,0 @@
-// Name: Ryg Atari remix
-// Author: ANoUserXD
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-(t*((l=0xAFEDC320)>>((t>>12^(t>>12)-2)%11*t/64)&1)&&64)+(t*(l>>(t*'36364689'[t>>13&7]/96)&1)&&64)

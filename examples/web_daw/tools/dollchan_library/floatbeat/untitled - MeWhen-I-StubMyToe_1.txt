@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: MeWhen-I-StubMyToe
-// Sample Rate: 8000
-// Category: floatbeat
-// Mode: bytebeat
-

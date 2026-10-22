@@ -1,7 +1,0 @@
-// Name: Fractal trying to make music
-// Author: ANoUserXD
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(1+(t>>12))*(t^t+(t>>8&3|t>>9&11|-t>>10&14))

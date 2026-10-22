@@ -1,7 +1,0 @@
-// Name: C64 thing
-// Author: Zackx
-// Sample Rate: 32000
-// Category: js-256
-// Mode: bytebeat
-
-(t*2**('047'[(t>>10)%3]/12)*1.04*2**('0572'[3&t>>17]/12)&127)+(t>>10)&128

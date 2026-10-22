@@ -1,7 +1,0 @@
-// Name: goofy ahh noises
-// Author: RealZynx92
-// Sample Rate: 32000
-// Category: js-256
-// Mode: bytebeat
-
-t%round(tan(t/100000)*2e4)

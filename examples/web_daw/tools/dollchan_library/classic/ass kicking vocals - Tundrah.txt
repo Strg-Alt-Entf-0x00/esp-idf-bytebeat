@@ -1,7 +1,0 @@
-// Name: ass kicking vocals
-// Author: Tundrah
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>5)|(t>>4)|((t%42)*(t>>4)|(0x15483113)-(t>>4))/(t>>16)^(t|(t>>4))

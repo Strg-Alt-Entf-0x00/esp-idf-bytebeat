@@ -1,7 +1,0 @@
-// Name: fire (max zoom)
-// Author: GDPlayer_1035
-// Sample Rate: 44100
-// Category: js-256
-// Mode: bytebeat
-
-(((((((t%2)?t/2:t/4)+t/800)+sin(t/(t%2?20:10))*9)&t^t))+t^t)

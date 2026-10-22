@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Salty_Formal5291
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-

@@ -1,7 +1,0 @@
-// Name: Explosions #2
-// Author: SthephanShi
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t>>4)*(t>>3)|t>>3

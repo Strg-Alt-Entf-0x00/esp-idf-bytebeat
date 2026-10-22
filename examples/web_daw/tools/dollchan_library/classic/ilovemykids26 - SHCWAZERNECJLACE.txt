@@ -1,7 +1,0 @@
-// Name: ilovemykids26
-// Author: SHCWAZERNECJLACE
-// Sample Rate: 16000
-// Category: classic
-// Mode: bytebeat
-
-3*t^t>>6|t

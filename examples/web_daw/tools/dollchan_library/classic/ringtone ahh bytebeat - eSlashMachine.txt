@@ -1,7 +1,0 @@
-// Name: ringtone ahh bytebeat
-// Author: eSlashMachine
-// Sample Rate: 32000
-// Category: classic
-// Mode: bytebeat
-
-(((t<<(t>>12&1))+(t<<(t>>80&17))+(t<<(t>>10&49))))

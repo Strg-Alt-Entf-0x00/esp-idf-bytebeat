@@ -1,7 +1,0 @@
-// Name: slightly altered version of rrolas formula
-// Author: PB95Player
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-
-(t*(0xCA98CA98CA98>>(t>>9&44)&15)|t>>8)|(40000/(t&4095))

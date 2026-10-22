@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: No_Half-d01-8875
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

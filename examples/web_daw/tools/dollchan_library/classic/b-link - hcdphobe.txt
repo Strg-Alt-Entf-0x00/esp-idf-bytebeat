@@ -1,7 +1,0 @@
-// Name: b-link
-// Author: hcdphobe
-// Sample Rate: 32000
-// Category: classic
-// Mode: bytebeat
-
-(((t>>(t>>14)%4)+t*(1+(1+(t>>18)%6)*(t>>12)*(t>>13)%8))/4|-t>>5)+20

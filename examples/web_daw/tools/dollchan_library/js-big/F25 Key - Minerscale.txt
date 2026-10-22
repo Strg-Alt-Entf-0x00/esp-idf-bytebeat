@@ -1,6 +1,0 @@
-// Name: F25 Key
-// Author: Minerscale
-// Sample Rate: 8000
-// Category: js-big
-// Mode: bytebeat
-

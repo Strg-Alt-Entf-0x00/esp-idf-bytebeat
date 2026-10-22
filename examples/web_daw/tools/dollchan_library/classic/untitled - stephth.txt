@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: stephth
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

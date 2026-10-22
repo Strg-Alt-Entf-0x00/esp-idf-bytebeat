@@ -1,6 +1,0 @@
-// Name: untitled
-// Author: Straight_Ambition375
-// Sample Rate: 8000
-// Category: classic
-// Mode: bytebeat
-

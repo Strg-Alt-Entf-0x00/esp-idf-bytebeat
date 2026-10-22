@@ -1,7 +1,0 @@
-// Name: t
-// Author: 
-// Sample Rate: 48000
-// Category: classic
-// Mode: bytebeat
-
-t

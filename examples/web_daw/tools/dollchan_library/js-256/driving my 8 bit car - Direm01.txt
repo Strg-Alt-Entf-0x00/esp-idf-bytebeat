@@ -1,7 +1,0 @@
-// Name: driving my 8 bit car
-// Author: Direm01
-// Sample Rate: 8000
-// Category: js-256
-// Mode: bytebeat
-
-(((t>>6)*t)>>430)*[0xccDD]%1000

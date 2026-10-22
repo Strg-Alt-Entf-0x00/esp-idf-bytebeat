@@ -1,7 +1,0 @@
-// Name: Weird Thingy Music
-// Author: Decent-Manager-6169
-// Sample Rate: 32000
-// Category: js-256
-// Mode: bytebeat
-
-a=t&t>>6,b=t|t>>8,c=t|t>>7,d=t|t>>9,a+b+c+d

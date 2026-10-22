@@ -1,7 +1,0 @@
-// Name: DJ 42-melody
-// Author: hcdphobe
-// Sample Rate: 32000
-// Category: js-256
-// Mode: Signed Bytebeat
-
-t/=4,(t*(42&t>>10)%256/4+sin(cbrt(t%4096)*16)*64-43+((t&4096)?(random()*t&-t>>5)%256/2:0))/2

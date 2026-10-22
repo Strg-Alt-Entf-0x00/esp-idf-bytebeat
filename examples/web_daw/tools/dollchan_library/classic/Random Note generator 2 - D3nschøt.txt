@@ -1,7 +1,0 @@
-// Name: Random Note generator 2
-// Author: D3nschøt
-// Sample Rate: 44100
-// Category: classic
-// Mode: bytebeat
-
-t/2*(6+((t^t/2^t/4&t/8)>>13&3))/6%128+t/4*(6+((t>>18)&3))/6%128

@@ -4,11 +4,50 @@
 #include <freertos/task.h>
 #include <freertos/queue.h>
 #include <freertos/semphr.h>
-#include <string.h>
 #include <math.h>
 
-#define AUDIO_FRAME_SAMPLES 128
-#define BYTEBEAT_NATIVE_RATE 8000
+// ============================================================================
+// Configuration Constants
+// ============================================================================
+
+// Audio processing
+#define AUDIO_FRAME_SAMPLES         128
+#define BYTEBEAT_NATIVE_RATE        8000
+
+// Queue and task
+#define QUEUE_LENGTH                5
+#define TASK_STACK_SIZE             4096
+#define TASK_WAIT_TIMEOUT_MS        100
+#define TASK_DEINIT_TIMEOUT_MS      1000
+
+// Fixed-point arithmetic (Q15 format: 1.0 = 32768)
+#define Q15_ONE                     32768
+#define Q15_SHIFT                   15
+
+// Fixed-point arithmetic (Q16 format for upsampling)
+#define Q16_ONE                     0x10000
+#define Q16_SHIFT                   16
+#define Q16_FRACTIONAL_MASK         0xFFFF
+
+// Fading and volume
+#define FADE_SPEED_Q15              164         // ~0.005 * 32768
+#define FADE_OUT_SAMPLES            200         // Last N samples to fade out
+#define MAX_VOLUME_Q15              Q15_ONE
+
+// Sample value ranges
+#define SAMPLE_VALUE_MIN            (-1.0f)
+#define SAMPLE_VALUE_MAX            1.0f
+#define SAMPLE_INT16_MAX            32767.0f
+#define BYTEBEAT_UNSIGNED_OFFSET    128
+#define BYTEBEAT_SIGNED_MASK        0xFF
+#define BYTEBEAT_SIGNED_THRESHOLD   128
+#define BYTEBEAT_SIGNED_OFFSET      256
+#define BYTEBEAT_SCALE_FACTOR       256
+
+// Special values
+#define DURATION_INFINITE           0xFFFFFFFF
+#define STOP_SIGNAL                 0xFFFFFFFF
+#define CORE_NO_AFFINITY            0xFFFFFFFF
 
 typedef struct {
     bytebeat_program_t program;

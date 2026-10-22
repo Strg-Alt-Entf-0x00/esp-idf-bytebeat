@@ -1,6 +1,0 @@
-// Name: Dancing Moon
-// Author: SthephanShi
-// Sample Rate: 44100
-// Category: js-big
-// Mode: bytebeat
-

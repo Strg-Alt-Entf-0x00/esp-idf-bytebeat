@@ -1,7 +1,0 @@
-// Name: 2-bit song
-// Author: RealZynx92
-// Sample Rate: 32000
-// Category: js-256
-// Mode: bytebeat
-
-(pow(2.75,-t/2048%8+8)&128)+(t*(t&t>>11)&64)|t/[2,2,2,2,3,3,4,4][(t>>14)%8]&128
