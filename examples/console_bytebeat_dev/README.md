@@ -50,18 +50,36 @@ This is the **development version** of ESP Bytebeat Console, designed for:
 
 ### 1. Build & Flash
 
-**From ESP-IDF Terminal:**
+**From a regular Command Prompt or ESP-IDF Command Prompt:**
 ```batch
 cd examples\console_bytebeat_dev
-idf.py build
-idf.py -p COM4 flash monitor
+esp-build.bat
+esp-build.bat -p COM4 flash monitor
 ```
 
-**Or use scripts:**
+`esp-build.bat` is included with this example and builds it from its own
+directory. It does not require the separate `esp-build-manager` repository.
+If ESP-IDF is not already active, it looks in `IDF_PATH` and common Windows
+installation locations (including `C:\esp\v*\esp-idf` and
+`C:\Espressif\frameworks\esp-idf*`) and calls the discovered installation's
+`export.bat`.
+
+You can also pass ESP-IDF commands through the same script:
 ```batch
-build.bat                    # Just build
-build_flash.bat COM4         # Build + flash + monitor
+esp-build.bat clean
+esp-build.bat menuconfig
+esp-build.bat flash
+esp-build.bat monitor
+esp-build.bat -p COM4 flash monitor
+esp-build.bat --dry-run -p COM4 flash monitor
 ```
+
+The example's `esp-build-config.json` controls the default action, port,
+separate flash/monitor baud rates, ccache, and whether CMake-registered
+additional images are flashed. Its safe default is build-only. Command-line
+actions override the default for that run; for example,
+`esp-build.bat -p COM4 flash monitor` selects COM4, flashes, then starts the
+monitor. `--dry-run` checks target selection without accessing the board.
 
 ### 2. Check Boot Messages
 
@@ -232,8 +250,8 @@ console_bytebeat_dev/
 ├── CMakeLists.txt
 ├── partitions.csv
 ├── sdkconfig.defaults             # Pre-configured settings
-├── build.bat                      # Build script
-├── build_flash.bat                # Build + flash + monitor
+├── esp-build.bat                  # Standalone build, clean, flash and monitor
+├── esp-build-config.json          # Local defaults for this example
 └── README.md                      # This file
 ```
 

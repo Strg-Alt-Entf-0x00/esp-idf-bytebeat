@@ -1,0 +1,21 @@
+﻿{
+    "esp_idf":  {
+                    "path":  null
+                },
+    "serial":  {
+                   "monitor_baudrate":  115200,
+                   "port":  null,
+                   "flash_baudrate":  null
+               },
+    "workflow":  {
+                     "clean_build_prompt":  false,
+                     "default_action":  "build"
+                 },
+    "build":  {
+                  "ccache":  true
+              },
+    "storage":  {
+                    "flash_images":  false
+                },
+    "version":  1
+}

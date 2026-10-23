@@ -5,8 +5,8 @@
 
 extern "C" void app_main(void)
 {
-    printf("Booting ESP Bytebeat Console v2.0...\n");
-    printf("Pure C Engine - No JavaScript!\n\n");
+    printf("ESP Bytebeat is starting.\n");
+    printf("Send HELP in the serial console to see available controls.\n");
 
     // 1. Initialize audio hardware (I2C, I2S, ES8311 Codec)
     esp_err_t err = audio_manager_init();
@@ -16,7 +16,6 @@ extern "C" void app_main(void)
     }
 
     // 2. Set initial volume and start I2S playback
-    audio_manager_set_speaker_vol(100);
     audio_manager_start_playback();
 
     // 3. Start the Serial command listener (UART)

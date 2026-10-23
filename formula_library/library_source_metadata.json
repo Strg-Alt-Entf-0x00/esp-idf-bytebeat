@@ -1,0 +1,34 @@
+{
+  "source": {
+    "name": "Dollchan Bytebeat Library",
+    "url": "https://dollchan.net/bytebeat/data/library/all.gz",
+    "alternative_urls": [
+      "http://viznut.fi/demos/unix/bytebeat_formulas.txt",
+      "https://raw.githubusercontent.com/SthephanShinkufag/bytebeat-composer/master/library.json"
+    ]
+  },
+  "download": {
+    "date": "unknown",
+    "method": "manual",
+    "note": "Downloaded during initial development"
+  },
+  "file": {
+    "filename": "library_source_all.gz",
+    "size_bytes": 489372,
+    "sha256": "9EFAC136A9D104B2321D08709E2AAB89F19D8A07FBB07B32BB8642020C5DC918"
+  },
+  "validation": {
+    "total_formulas": 2091,
+    "validated_formulas": 2091,
+    "success_rate": "100%",
+    "note": "All formulas have complete source code from original library"
+  },
+  "license": {
+    "note": "Original formulas may have various licenses - check individual formula metadata",
+    "common_sources": [
+      "Viznut (public domain/creative commons)",
+      "Community contributions (various)",
+      "Dollchan collection"
+    ]
+  }
+}

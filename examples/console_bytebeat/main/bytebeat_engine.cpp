@@ -19,24 +19,16 @@
 
 extern "C" {
     #include "bytebeat_vm.h"
-    #include "bytebeat_vm_pie.h"
 }
 
 // ---------------------------------------------------------------------------
 // Internal State
 // ---------------------------------------------------------------------------
-static volatile int s_manual_sample_skip = 0;
 static volatile float s_speed_mult = 1.0f;
 static volatile int s_mode = 1; // Default Floatbeat
 static char s_formula[32768] = "0";
 static volatile bool s_flag_reload = false;
-static bytebeat_program_t s_program = {0};
-
-// ---------------------------------------------------------------------------
-// Stringify helper for Kconfig integer values
-// ---------------------------------------------------------------------------
-#define STRINGIFY_HELPER(x) #x
-#define STRINGIFY(x) STRINGIFY_HELPER(x)
+static bytebeat_program_t s_program = {};
 
 // ---------------------------------------------------------------------------
 // Job Queue Structure
@@ -53,9 +45,7 @@ static QueueHandle_t q_worker_out[2];
 // ---------------------------------------------------------------------------
 // Formula compilation helper (Pure C!)
 // ---------------------------------------------------------------------------
-static bool compile_formula(int core_id) {
-    printf("[Core %d] Compiling formula: %s\n", core_id, s_formula);
-    
+static bool compile_formula(bool report_errors) {
     if (strlen(s_formula) == 0 || (s_formula[0] == '0' && s_formula[1] == '\0')) {
         // Silent formula
         s_program.length = 0;
@@ -65,12 +55,13 @@ static bool compile_formula(int core_id) {
     bool success = bytebeat_compile(s_formula, &s_program);
     
     if (!success) {
-        printf("[Core %d] Compile error!\n", core_id);
+        if (report_errors) {
+            printf("Formula could not be compiled. Audio output is muted.\n");
+        }
         s_program.length = 0;
         return false;
     }
     
-    printf("[Core %d] Compiled successfully! Instructions: %lu\n", core_id, s_program.length);
     return true;
 }
 
@@ -82,7 +73,7 @@ static void bytebeat_worker_task(void *pvParameter) {
     const int CHUNK_SIZE = CONFIG_DAW_CHUNK_SIZE;
 
     // Compile initial formula
-    compile_formula(core_id);
+    compile_formula(core_id == 0);
 
     static volatile int s_sample_skip = 1;
     static volatile int s_chunk_counter = 0;
@@ -92,15 +83,14 @@ static void bytebeat_worker_task(void *pvParameter) {
         xQueueReceive(q_worker_in[core_id], &job, portMAX_DELAY);
 
         if (job.is_reload) {
-            printf("[Core %d] Recompiling formula...\n", core_id);
-            compile_formula(core_id);
+            compile_formula(core_id == 0);
             xQueueSend(q_worker_out[core_id], &job, portMAX_DELAY);
             continue;
         }
 
         s_chunk_counter = s_chunk_counter + 1;
         int current_chunk = s_chunk_counter;
-        int skip = (s_manual_sample_skip > 0) ? s_manual_sample_skip : s_sample_skip;
+        int skip = s_sample_skip;
 
         int64_t t1 = esp_timer_get_time();
 
@@ -157,20 +147,14 @@ static void bytebeat_worker_task(void *pvParameter) {
         static float avg_duration = 10.0f;
         avg_duration = (avg_duration * 19.0f + (float)duration_ms) / 20.0f;
 
-        if (core_id == 0 && current_chunk % 20 == 0) {
-            printf("[Core 0] chunk %d: %d ms, skip=%d\n", current_chunk, duration_ms, s_sample_skip);
-        }
-
-        if (s_manual_sample_skip == 0) {
-            if (avg_duration > 20.0f) {
-                int ns = s_sample_skip + 4;
-                s_sample_skip = (ns > 128) ? 128 : ns;
-            } else if (avg_duration > 15.0f) {
-                int ns = s_sample_skip + 1;
-                s_sample_skip = (ns > 128) ? 128 : ns;
-            } else if (avg_duration < 12.0f && s_sample_skip > 1) {
-                s_sample_skip = s_sample_skip - 1;
-            }
+        if (avg_duration > 20.0f) {
+            int ns = s_sample_skip + 4;
+            s_sample_skip = (ns > 128) ? 128 : ns;
+        } else if (avg_duration > 15.0f) {
+            int ns = s_sample_skip + 1;
+            s_sample_skip = (ns > 128) ? 128 : ns;
+        } else if (avg_duration < 12.0f && s_sample_skip > 1) {
+            s_sample_skip = s_sample_skip - 1;
         }
 
         xQueueSend(q_worker_out[core_id], &job, portMAX_DELAY);
@@ -198,8 +182,6 @@ static void coordinator_task(void *pvParameter) {
         xQueueSend(q_worker_in[i % 2], &j, portMAX_DELAY);
     }
 
-    printf("Coordinator: %d PSRAM buffers allocated, rendering started\n", NUM_BUFFERS);
-
     bool needs_reload_core0 = false;
     bool needs_reload_core1 = false;
     int worker_idx = 0;
@@ -207,7 +189,6 @@ static void coordinator_task(void *pvParameter) {
     while (1) {
         if (s_flag_reload) {
             s_flag_reload = false;
-            printf("Coordinator: reloading formula\n");
             t = 0.0;
             needs_reload_core0 = true;
             needs_reload_core1 = true;
@@ -262,16 +243,6 @@ void bytebeat_engine_init(void) {
     xTaskCreatePinnedToCore(coordinator_task, "bb_coord", 4096,
                             NULL, 5, NULL, CONFIG_DAW_COORD_CORE_ID);
     
-    printf("Bytebeat Engine initialized (Pure C - No JavaScript!)\n");
-    printf("Chip: %s | PIE: %s\n", 
-           bytebeat_get_chip_name(), 
-           bytebeat_pie_available() ? "Available" : "Not available");
-           
-#ifdef CONFIG_ESP_BYTEBEAT_USE_DSP
-    printf("ESP-DSP: Enabled (Hardware-accelerated math)\n");
-#else
-    printf("ESP-DSP: Disabled (Standard math)\n");
-#endif
 }
 
 void bytebeat_engine_set_formula(const char* formula) {
@@ -287,8 +258,4 @@ void bytebeat_engine_set_mode(int mode) {
 
 void bytebeat_engine_set_speed(float speed) {
     s_speed_mult = speed;
-}
-
-void bytebeat_engine_set_sample_skip(int skip) {
-    s_manual_sample_skip = skip;
 }

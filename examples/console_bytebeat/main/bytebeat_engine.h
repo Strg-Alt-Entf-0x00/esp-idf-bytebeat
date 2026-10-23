@@ -37,13 +37,6 @@ void bytebeat_engine_set_mode(int mode);
  */
 void bytebeat_engine_set_speed(float speed);
 
-/**
- * @brief Set manual sample skip (0 = auto DRS).
- *
- * @param skip  Number of samples to skip per evaluation (0 for automatic).
- */
-void bytebeat_engine_set_sample_skip(int skip);
-
 #ifdef __cplusplus
 }
 #endif

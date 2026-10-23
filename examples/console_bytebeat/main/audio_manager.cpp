@@ -44,17 +44,10 @@ static esp_err_t audio_i2c_init(void) {
     i2c_mst_config.glitch_ignore_cnt = 7;
     i2c_mst_config.flags.enable_internal_pullup = true;
     
-    ESP_LOGI(TAG, "Initializing I2C Master: SCL=%d, SDA=%d, Freq=400000Hz", 
-             CONFIG_DAW_I2C_SCL_GPIO, CONFIG_DAW_I2C_SDA_GPIO);
-             
     return i2c_new_master_bus(&i2c_mst_config, &g_i2c_bus_handle);
 }
 
 static esp_err_t audio_i2s_init(void) {
-    ESP_LOGI(TAG, "Initializing I2S STD: MCLK=%d, BCLK=%d, WS=%d, DOUT=%d",
-             CONFIG_DAW_I2S_MCLK_GPIO, CONFIG_DAW_I2S_BCLK_GPIO, 
-             CONFIG_DAW_I2S_WS_GPIO, CONFIG_DAW_I2S_DOUT_GPIO);
-
     i2s_chan_config_t chan_cfg = I2S_CHANNEL_DEFAULT_CONFIG(I2S_NUM_0, I2S_ROLE_MASTER);
     chan_cfg.auto_clear = true;
     
@@ -111,8 +104,6 @@ static void audio_tx_task(void *pvParameters) {
 
 
 static esp_err_t audio_codec_init(void) {
-    ESP_LOGI(TAG, "Initializing ES8311 codec");
-    
     audio_codec_i2c_cfg_t i2c_cfg = {};
     i2c_cfg.port = I2C_NUM_0;
     i2c_cfg.addr = ES8311_CODEC_DEFAULT_ADDR;
@@ -167,7 +158,6 @@ static esp_err_t audio_codec_init(void) {
     
     if (ret != ESP_OK) return ret;
     
-    ESP_LOGI(TAG, "ES8311 codec initialized successfully (PLAYBACK mode)");
     return ESP_OK;
 }
 
@@ -197,7 +187,6 @@ esp_err_t audio_manager_init(void) {
     xTaskCreatePinnedToCore(audio_tx_task, "audio_tx", 4096, NULL, 5, &g_tx_task_handle, 1);
     
     g_initialized = true;
-    ESP_LOGI(TAG, "=== Audio Manager Initialized Successfully ===");
     return ESP_OK;
 }
 
@@ -231,7 +220,6 @@ esp_err_t audio_manager_deinit(void) {
     }
     
     g_initialized = false;
-    ESP_LOGI(TAG, "Audio manager deinitialized");
     return ESP_OK;
 }
 
@@ -245,9 +233,6 @@ esp_err_t audio_manager_set_speaker_vol(uint8_t vol_level) {
     // The ES8311 driver applies the configured fixed hardware-route gain.
     float db_val = (vol_level == 0) ? -96.0f : (-50.0f + (vol_level * 0.5f));
     esp_err_t ret = g_codec_if->set_vol(g_codec_if, db_val);
-    if (ret == ESP_OK) {
-        ESP_LOGI(TAG, "Speaker volume set to %d%% (%.1f dB)", vol_level, db_val);
-    }
     return ret;
 }
 
@@ -260,11 +245,7 @@ esp_err_t audio_manager_start_playback(void) {
     esp_err_t ret = g_codec_if->enable(g_codec_if, true);
     if (ret != ESP_OK) return ret;
     
-    // Re-apply volume to ensure DAC is not left muted by capture stop
-    // audio_manager_set_speaker_vol(100);
-    
     g_playback_running = true;
-    ESP_LOGI(TAG, "Audio playback started");
     return ESP_OK;
 }
 
@@ -284,7 +265,6 @@ esp_err_t audio_manager_stop_playback(void) {
     
     g_codec_if->enable(g_codec_if, false);
     
-    ESP_LOGI(TAG, "Audio playback stopped");
     return ESP_OK;
 }
 
