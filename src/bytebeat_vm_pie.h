@@ -8,10 +8,10 @@ extern "C" {
 #endif
 
 /**
- * @brief PIE-optimized stereo buffer fill for ESP32-P4/S3
- * 
- * Uses SIMD instructions to fill stereo buffers 3-4x faster.
- * Only available on ESP32-S3 and ESP32-P4.
+ * @brief Legacy-named stereo buffer fill gated to ESP32-P4/S3 builds.
+ *
+ * The current implementation is portable C with a manually unrolled loop; it
+ * does not issue PIE/SIMD instructions and has no measured speedup.
  * 
  * @param out_buf Output buffer (interleaved stereo int16)
  * @param left Left channel value
@@ -23,9 +23,11 @@ void bytebeat_fill_stereo_pie(int16_t *out_buf, int16_t left, int16_t right, int
 #endif
 
 /**
- * @brief Check if PIE optimization is available
+ * @brief Check whether the build target is ESP32-S3 or ESP32-P4.
  * 
- * @return true if running on ESP32-S3 or ESP32-P4
+ * @return true for those target builds. This reports target capability only;
+ *         it does not indicate that the current buffer-fill implementation
+ *         uses PIE/SIMD instructions.
  */
 bool bytebeat_pie_available(void);
 

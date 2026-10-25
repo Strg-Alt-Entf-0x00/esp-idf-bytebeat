@@ -5,9 +5,8 @@
 #include <stdio.h>
 #include <math.h>
 
-// Hardware-accelerated math functions
-// Note: ESP-DSP does NOT provide sin/cos/atan2 functions!
-// We use standard math.h with ESP32-P4 hardware float acceleration (PIE)
+// ESP-DSP provides the optional square-root helper; other math operations use
+// the standard C math library and the target's configured math implementation.
 #ifdef CONFIG_ESP_BYTEBEAT_USE_DSP
     #include "dsps_math.h"
     // Use ESP-DSP optimized functions where available
@@ -18,7 +17,7 @@
     #define USE_DSP 0
 #endif
 
-// Trig functions use hardware float (PIE on ESP32-P4)
+// Trigonometric functions use the standard C math library.
 #define FAST_SIN(x)    sinf(x)
 #define FAST_COS(x)    cosf(x)
 #define FAST_ATAN2(y,x) atan2f(y, x)

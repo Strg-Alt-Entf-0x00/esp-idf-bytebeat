@@ -30,14 +30,11 @@ const char* bytebeat_get_chip_name(void) {
 #endif
 }
 
-// PIE-optimized stereo fill for ESP32-P4/S3
+// Legacy-named portable C stereo fill, available to ESP32-P4/S3 builds.
 #if defined(CONFIG_IDF_TARGET_ESP32P4) || defined(CONFIG_IDF_TARGET_ESP32S3)
 
 void bytebeat_fill_stereo_pie(int16_t *out_buf, int16_t left, int16_t right, int count) {
-    // For now, use optimized C implementation
-    // TODO: Add actual PIE/SIMD assembly instructions for maximum performance
-    
-    // Unroll loop for better performance
+    // Keep the implementation portable; target-specific PIE code is not used.
     int i = 0;
     for (; i < (count & ~3); i += 4) {
         out_buf[i * 2 + 0] = left;

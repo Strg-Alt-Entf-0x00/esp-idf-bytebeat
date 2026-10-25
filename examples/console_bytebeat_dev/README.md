@@ -88,8 +88,8 @@ monitor. `--dry-run` checks target selection without accessing the board.
 Booting ESP Bytebeat Console Dev v1.1.0
 Pure C Engine - No JavaScript!
 
-Chip: ESP32-P4 | PIE: Available
-ESP-DSP: Enabled (Hardware-accelerated math)
+Chip: ESP32-P4 | PIE hardware: Available (bytebeat PIE kernel: not implemented)
+ESP-DSP: Enabled (square-root helper; target performance unmeasured)
 Sample Rate: 48000 Hz | Chunk: 512 samples
 
 SD Card: Mounted at /sd
@@ -327,7 +327,7 @@ C:\esp\v6.0.2\esp-idf\export.bat
 
 **"Performance degraded"**
 - Check ESP-DSP enabled (`idf.py menuconfig`)
-- Verify PIE available (boot message)
+- Check whether PIE hardware is available; the current bytebeat helper does not use PIE instructions
 - Disable telemetry if testing baseline
 - Check CPU affinity (Core 0 vs Core 1)
 
@@ -336,7 +336,6 @@ C:\esp\v6.0.2\esp-idf\export.bat
 ## 📚 Documentation
 
 **In Project:**
-- [DEV_PLAN_TELEMETRY.md](../../.docs/DEV_PLAN_TELEMETRY.md) - Master development plan
 - [FILEBRIDGE.md](../../documentation/development_tools/FILEBRIDGE.md) - Filebridge guide
 - [INTEGRATION.md](../../documentation/INTEGRATION.md) - Component integration
 
@@ -382,7 +381,7 @@ C:\esp\v6.0.2\esp-idf\export.bat
 ### Sprint 6: Optimization
 - [ ] Measure baseline
 - [ ] ESP-DSP tuning
-- [ ] PIE code optimization
+- [ ] Implement and benchmark a target-specific PIE code path, retaining a portable fallback
 - [ ] Memory layout
 - [ ] CPU load balancing
 
@@ -424,7 +423,6 @@ C:\esp\v6.0.2\esp-idf\export.bat
 8. Never assume, always test
 
 **Resources:**
-- `DEV_PLAN_TELEMETRY.md` - Full plan
 - `AUTOPILOT_SESSION_1.md` - Current session log
 - Reference projects in `../../esp32-p4-idf-*`
 

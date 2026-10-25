@@ -1,250 +1,96 @@
-# ESP32 Bytebeat Development Tools
+# Development Tools
 
-## 📁 Current State (Latest Update)
+## Scope
 
-### ✅ Completed
-- **Production GUI** fully integrated into `bytebeat_tool.py`
-- **2422 Formula Library** from dollchan successfully loaded
-- **PC Audio Preview** working (pyaudio-based)
-- **CLI Commands** all functional (list, search, preview, play, send, stop)
-- **Modern UX** with professional search field (counter inside, placeholder, clear button)
-- **All in ONE file**: `tools_py/bytebeat_tool.py` (no duplicates, cleaned up)
+This guide covers the Bytebeat tools in `tools_py`, the ESP-IDF examples, and
+the formula snapshot in `formula_library`. It describes observed source and
+checked-in files, not assumed functionality.
 
-### 📦 Files Structure
-```
-tools_py/
-├── bytebeat_tool.py       # ✅ Final unified tool (CLI + GUI)
-├── library.json           # ✅ 2422 formulas packed
-└── dollchan_library/      # Original formula sources
-    ├── classic/           # 421 formulas
-    ├── floatbeat/         # 362 formulas
-    ├── floatbeat-big/     # 215 formulas
-    ├── funcbeat/          # 137 formulas
-    ├── js-1k/             # 497 formulas
-    ├── js-256/            # 572 formulas
-    └── js-big/            # 217 formulas
-```
+## Python Bytebeat Tool
 
-### 🎯 Tool Features
-**GUI Mode:**
-- Professional 3-panel layout (Library | Editor | Console)
-- Search field with live counter INSIDE field
-- Category dropdown (no redundant label)
-- Colored connection button (Red/Orange/Green states)
-- PC Preview button (plays on PC speakers)
-- Send to ESP32 button
-- Full-width debug console with timestamps
+The unified CLI and GUI entry point is `tools_py/bytebeat_tool.py`.
 
-**CLI Mode:**
-```bash
-# List & Search
-python bytebeat_tool.py list --categories
-python bytebeat_tool.py list --category classic
-python bytebeat_tool.py search "melody"
+| Command | Purpose |
+| --- | --- |
+| `gui` | Open the desktop interface |
+| `list [--categories] [--category NAME]` | List formulas or categories |
+| `search QUERY` | Search the loaded formula catalog |
+| `preview INDEX` | Preview a catalog entry on the host |
+| `preview-custom FORMULA` | Preview a supplied formula |
+| `play INDEX --port PORT` | Send a catalog formula to the device |
+| `send FORMULA --port PORT [--mode N] [--sample-rate HZ]` | Compile and transfer bytecode |
+| `stop --port PORT` | Stop device playback |
+| `convert FILE` | Apply the tool's JavaScript-to-expression replacements |
+| `validate FILE` | Run the tool's formula checks |
+| `pack [--library DIR] [--output FILE]` | Pack formula files into a JSON catalog |
+| `serial PORT [--baudrate RATE]` | Open a serial monitor |
 
-# PC Preview (test locally)
-python bytebeat_tool.py preview 42
-python bytebeat_tool.py preview-custom "t>>4" --duration 10
+Run `python tools_py\bytebeat_tool.py --help` for the current argument
+definitions. Device modes in the tool are 0 (Bytebeat), 1 (Floatbeat), 2
+(Signed Bytebeat), and 3 (Funcbeat). The firmware's `INFO` response currently
+advertises modes U, F, and S; do not assume mode 3 is accepted by every example.
 
-# ESP32 Control
-python bytebeat_tool.py play 42 --port COM4
-python bytebeat_tool.py send "t*(t>>8|t>>9)&63" --port COM4
-python bytebeat_tool.py stop --port COM4
-```
+### Current checkout limitations
 
----
+The script imports `native_bytebeat_bytecode` and `native_bytebeat_compiler`.
+Neither helper module is beside `bytebeat_tool.py` in the visible `tools_py`
+root. Running the script's help command in this checkout currently fails with
+`ModuleNotFoundError: native_bytebeat_bytecode`. The CLI, GUI, preview,
+transfer, and pack workflows therefore require their helper modules to be
+restored or otherwise made available before they can be treated as runnable.
 
-## 🚀 TODO: Next Session Priorities
+The script looks for its formula catalog at
+`tools_py/library/library.json`, falling back to `tools_py/library.json`.
+Neither file is currently present. Its pack command defaults to
+`tools_py/dollchan_library` and writes to `tools_py/library/library.json`;
+that source directory is also absent. These are legacy expectations, not
+verified commands for the current formula snapshot.
 
-### 1. 🔌 **Connection Hardening** (CRITICAL)
-**Problem:** Tool connects to ANY device on COMx, doesn't verify it's OUR firmware.
+The script uses Python standard-library modules and imports PySerial for serial
+operations. Host audio preview imports PyAudio. No project-local dependency
+manifest for this script was found.
 
-**Solution:** Professional Handshake Protocol
-- [ ] **Firmware Side** (`console_bytebeat_dev`):
-  - Add command handler for `VERSION?\n`
-  - Respond with `BYTEBEAT:v2.0.0\n`
-  - Add `INFO?\n` → `BYTEBEAT:ESP32-P4:8000Hz:modes=U,F,S\n`
-  
-- [ ] **Tool Side** (`bytebeat_tool.py`):
-  - After `serial.Serial()`, send `VERSION?\n`
-  - Wait 500ms for response
-  - Parse response, verify contains `BYTEBEAT:`
-  - Only then set status to GREEN "Connected"
-  - If timeout or wrong response: ORANGE "Unknown Device" or RED "Wrong Firmware"
+## Formula Snapshot
 
-- [ ] **Auto-Detection:**
-  - Scan all available COM ports
-  - Send `VERSION?\n` to each
-  - Auto-select first port that responds with `BYTEBEAT:`
-  - Like Arduino IDE / PlatformIO does it
+The checked-in source snapshot is under `data/formula_library/`:
 
-**Research:**
-- How do professional tools detect devices? (Arduino IDE, PlatformIO, esptool)
-- Serial handshake best practices
-- Timeout handling
-- Multi-device scenarios
+- `library_source_all.gz`: original Dollchan archive.
+- `library_source_metadata.json`: source URL, archive hash, and recorded
+  provenance.
+- `library_validated.json`: a 2,091-entry derived dataset.
 
----
+The metadata says the retrieval date is unknown and the archive was obtained
+manually. Its 100% figure describes source-record coverage, not successful
+compilation, execution, or playback. Preserve the source archive and hash;
+record new retrieval dates and validation stages when the snapshot is
+refreshed. The individual formula licensing terms may differ.
 
-### 2. 🎵 **Dollchan Deep Analysis** (CRITICAL)
-**Problem:** Some formulas work, some don't. Why?
+## Device Examples
 
-**Investigation Tasks:**
-- [ ] **Analyze Original Implementation:**
-  - URL: https://dollchan.net/bytebeat/#4AAAA+kUzNNDSKLGzM68pqQFSZpraJkC+GpBpaAwRAAA
-  - Download/inspect JavaScript source
-  - Understand how they parse and execute formulas
-  - What features do they support that we don't?
+`examples/console_bytebeat` is the user-facing hardware example.
+`examples/console_bytebeat_dev` adds development controls, diagnostic output,
+and a UART Filebridge dependency. Its `esp-build.bat` and
+`esp-build-config.json` define the build and port workflow; use the active
+configuration instead of assuming a particular COM port.
 
-- [ ] **Compare Implementations:**
-  - **Dollchan:** JavaScript eval-based, browser AudioContext
-  - **Our ESP32:** C-based bytecode interpreter
-  - What's missing? Arrays? Advanced functions? Stereo?
+The developer firmware accepts formula commands over serial and implements a
+native bytecode transfer protocol (`BBLOAD`, `BBDATA`, `BBEND`) with
+acknowledgements. It also responds to `VERSION` and `INFO`. The device's
+supported modes and command behavior are firmware-specific; verify them
+against the example source and README before relying on a host-tool option.
 
-- [ ] **Test Each Category:**
-  - `classic` (421) - Basic unsigned bytebeat
-  - `floatbeat` (362) - Float-based (sin/cos)
-  - `funcbeat` (137) - Complex functions
-  - `js-1k`, `js-256`, `js-big` (1286) - JavaScript syntax
-  - Which categories work? Which fail?
+The Filebridge is a separate data-transfer connection. Its use does not by
+itself mean that telemetry is being recorded. See the
+[Filebridge guide](FILEBRIDGE.md) for the currently documented connection.
 
-- [ ] **Identify Missing Features:**
-  - Arrays support? `[note1, note2][t>>10]`
-  - String operations?
-  - Advanced Math functions? `atan2`, `random`
-  - Stereo output? `[left, right]`
-  - Variable declarations? `let x = ...`
+## Development Workflow
 
-- [ ] **Document Findings:**
-  - Create compatibility matrix
-  - List unsupported features
-  - Prioritize what to implement next
+1. Identify the formula source and the execution target.
+2. Check syntax with the tool when its helper modules are available.
+3. Treat host preview as a preliminary check only.
+4. Build and test the intended firmware on the target board.
+5. Record board revision, ESP-IDF version, configuration, formula, sample
+   rate, and test result for performance comparisons.
 
-**Files to check:**
-- Original: https://dollchan.net/bytebeat/
-- Our VM: `src/internal/moonshine_vm.c` or similar
-- Our parser: Tool's `convert_js_to_c()` function
-
----
-
-### 3. 🔧 **Tool Improvements**
-- [ ] Add Handshake to `connect()` method
-- [ ] Add Auto-Port-Detection button
-- [ ] Better error messages (parse ESP32 error responses)
-- [ ] Add "Test Formula" button (validates before sending)
-- [ ] Add Formula Compatibility indicator (green/yellow/red based on features used)
-
----
-
-### 4. 🛠️ **Firmware Improvements** 
-**Location:** `D:\github-repositorys\ESP32\esp-idf-bytebeat\examples\console_bytebeat_dev\`
-
-- [ ] Add VERSION command handler in `main.cpp` or serial_commands
-- [ ] Add INFO command (report capabilities)
-- [ ] Better formula error reporting (send back to tool)
-- [ ] Add missing features identified from dollchan analysis
-- [ ] Test with problematic formulas
-
----
-
-### 5. 📊 **Testing & Validation**
-- [ ] Create test suite script
-- [ ] Test all 2422 formulas automatically
-- [ ] Measure success rate per category
-- [ ] Generate report: `formulas_compatibility.json`
-- [ ] Priority fix list for broken formulas
-
----
-
-## 🔥 Quick Start Commands (for next session)
-
-### Start GUI
-```bash
-cd D:\github-repositorys\ESP32\esp-idf-bytebeat\tools_py
-python bytebeat_tool.py gui
-```
-
-### Build & Flash Firmware
-```bash
-cd D:\github-repositorys\ESP32\esp-idf-bytebeat\examples\console_bytebeat_dev
-cmd /c "C:\esp\v6.0.2\esp-idf\export.bat && idf.py build flash monitor"
-```
-
-### Test Serial Connection
-```bash
-python bytebeat_tool.py serial COM4
-```
-
----
-
-## 📝 Session Notes
-
-### Current Issues
-1. **Connection not verified** - Tool connects to any serial device
-2. **Some formulas don't play** - Need to identify why
-3. **No auto-detection** - User must manually select port
-
-### Known Working Examples
-- Simple formulas: `t>>4`, `t*(t>>8)`
-- Floatbeat: `sin(t/100)+cos(t/150)`
-- Classic bytebeat: `t*(t>>8|t>>9)&63`
-
-### Known Broken Examples
-- (To be identified in next session via dollchan analysis)
-
----
-
-## 🎯 Success Criteria for Next Session
-
-**Connection Hardening:**
-- ✅ Tool only shows "Connected" if ESP32 responds with correct handshake
-- ✅ Auto-detection finds ESP32 automatically
-- ✅ Clear error messages for wrong devices
-
-**Dollchan Analysis:**
-- ✅ Understand why some formulas fail
-- ✅ Document missing features
-- ✅ Create compatibility matrix
-
-**Implementation:**
-- ✅ Handshake protocol working both sides
-- ✅ At least one missing feature implemented
-- ✅ Success rate improved measurably
-
----
-
-## 📚 References
-
-- **Dollchan Bytebeat:** https://dollchan.net/bytebeat/
-- **Original Bytebeat:** http://canonical.org/~kragen/bytebeat/
-- **ESP-IDF Serial:** https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/uart.html
-- **PySerial Docs:** https://pyserial.readthedocs.io/
-
----
-
-## 🤖 Autopilot Mode Instructions
-
-When resuming this session:
-
-1. **Read this file first** to understand current state
-2. **Start with connection hardening** - Most critical for UX
-3. **Then dollchan deep-dive** - Research first, implement later
-4. **Test incrementally** - Build, flash, test each change
-5. **Document findings** - Update this file with results
-
-**Key Files to Edit:**
-- `tools_py/bytebeat_tool.py` - Tool-side handshake
-- `examples/console_bytebeat_dev/main/serial_commands.cpp` - Firmware-side commands
-- `examples/console_bytebeat_dev/main/main.cpp` - Version reporting
-
-**Testing Workflow:**
-1. Edit firmware → Build → Flash → Test
-2. Edit tool → Run GUI → Test connection
-3. Try problematic formulas → Document results
-4. Iterate
-
----
-
-**Last Updated:** 2024-01-XX (End of GUI integration session)
-**Next Session:** Connection hardening + Dollchan analysis
-**Status:** Ready for Autopilot Mode 🚀
+Do not infer device compatibility or audio quality from a successful source
+download, JSON validation, host compilation, or host playback alone.

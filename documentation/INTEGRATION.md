@@ -1,127 +1,87 @@
-# ESPormant32 Integration
+# Integration
 
-ESPormant32 is an ESP-IDF component for parametric formant speech synthesis.
-It provides the synthesis engine and an adapter to the separate ESPure G2P
-component. The consuming application remains responsible for board-specific
-audio and codec initialization, task scheduling, and writing generated PCM to
-its output device.
+`esp_bytebeat` is the reusable ESP-IDF component at the repository root. It
+compiles and renders supported Bytebeat expressions; it does not initialize a
+board, audio codec, I2S peripheral, or speaker. The consuming application
+provides an audio output callback and owns hardware setup.
 
-## Component responsibilities
+## Add the Component
 
-- **ESPure G2P** converts UTF-8 text into pronunciation output and owns the
-  language resources and G2P algorithms.
-- **ESPormant32** adapts G2P output to its phoneme IDs, applies its
-  application-side pronunciation/frame processing, and provides Klatt-style
-  synthesis and DSP.
-- **The application** selects text and voice settings, initializes board
-  peripherals, schedules synthesis, and sends generated samples to the audio
-  sink.
+The component manifest declares ESP-IDF 5.0 or newer and ESP-DSP. For a
+published project, add the component through the ESP-IDF Component Manager:
 
-Keep fixes in the repository that owns the behavior. Do not patch or copy
-ESPure sources under `managed_components/` or maintain an ESPormant-specific
-fork to work around an ESPure defect. If an integration failure is traced to
-ESPure, record a reproducible input, output/error, dependency revision, and
-build configuration; fix the G2P-owned issue in the ESPure repository and
-then validate the consuming application against that revision. Adapter bugs
-belong in ESPormant32.
-
-## Requirements and dependency setup
-
-The root [idf_component.yml](../idf_component.yml) declares ESP-IDF and
-ESPure dependencies. Its `override_path` is for local sibling-repository
-development; it must be removed or changed to a valid path for another
-checkout. For a registry build, use a released ESPure version constraint
-instead.
-
-The reference application manifests are:
-
-- [console_tts](../examples/console_tts/main/idf_component.yml)
-- [console_tts_dev](../examples/console_tts_dev/main/idf_component.yml)
-
-For a local component dependency, the ESP-IDF component name is
-`esp32-p4-idf-espormant32`; its CMake registration declares the ESPure
-component as `esp-idf-espure-g2p`. A consuming component can require
-ESPormant32 as follows:
-
-```cmake
-idf_component_register(
-    SRCS "main.cpp"
-    INCLUDE_DIRS "."
-    REQUIRES esp32-p4-idf-espormant32
-)
+```yaml
+dependencies:
+  esp_bytebeat:
+    git: https://github.com/Strg-Alt-Entf-0x00/esp-bytebeat.git
+    version: "^1.0.0"
 ```
 
-The consuming application may also require board-specific components such
-as its audio HAL, codec driver, console, GPIO, or NVS components.
+For local development, add the component repository through the consumer's
+component-manager override or `EXTRA_COMPONENT_DIRS`. Do not copy component
+source into an example or edit generated `managed_components` content.
 
-## Configure ESPure locales
+## Provide Audio Output
 
-ESPure language data is selected at build time. Enable every locale the
-application may select, for example in the consuming project's
-`sdkconfig.defaults`:
+Include the public header and configure a callback that writes the generated
+16-bit PCM samples to the application's audio sink:
 
-```text
-CONFIG_ESPURE_LOCALE_DE_DE=y
+```c
+#include "esp_bytebeat.h"
+
+static size_t write_pcm(const int16_t *samples, size_t num_bytes)
+{
+    return audio_write(samples, num_bytes);
+}
+
+const esp_bytebeat_config_t config = {
+    .target_sample_rate = 48000,
+    .task_priority = 5,
+    .task_core = 0xFFFFFFFF,
+    .software_volume_q15 = 32768,
+    .mode = ESP_BYTEBEAT_MODE_UNSIGNED,
+    .write_cb = write_pcm,
+};
+
+ESP_ERROR_CHECK(esp_bytebeat_init(&config));
+ESP_ERROR_CHECK(esp_bytebeat_play_string("(t * 5) & (t >> 7)", 0));
 ```
 
-The optional `en-GB` locale is an architecture pilot with limited vocabulary,
-not full English support. The ESPormant32 reference application currently
-enables the German locale and compressed Huffman dictionary:
+The callback's return value and buffer handling must follow the public API
+contract in [`include/esp_bytebeat.h`](../include/esp_bytebeat.h). The example
+above assumes the application provides `audio_write`; it is not supplied by
+the Bytebeat component.
 
-```text
-CONFIG_ESPURE_DICT_HUFFMAN_TRIE=y
-```
+## Target Portability
 
-The selected dictionary and language resources are embedded in the firmware
-image. ESPormant32 does not load or replace ESPure dictionaries from the
-UART Filebridge or SD card at runtime. See the
-[ESPure integration guide](../../esp-idf-espure-g2p/documentation/INTEGRATION.md)
-for locale and dictionary configuration details.
+The component's expression and sample-generation code is written in C and
+does not own board peripherals. Its manifest declares ESP-IDF 5.0 or newer and
+ESP-DSP, but those declarations alone do not certify every ESP32 target. The
+supplied playback examples use ESP32-P4 board/audio configurations. For
+another target, verify dependency support, build the consumer application,
+and test output, memory use, and timing on the intended hardware.
 
-## G2P adapter and TTS data flow
+`bytebeat_vm_pie` retains a legacy name. Its current stereo-fill routine uses
+portable C and does not issue PIE/SIMD instructions; the P4/S3 target check
+does not mean that this implementation receives hardware acceleration.
+ESP-DSP's selected implementation can vary by target and configuration, so
+measure before claiming a performance benefit.
 
-The adapter implementation is in
-[`espure_g2p.cpp`](../src/g2p/espure/espure_g2p.cpp). It initializes an
-ESPure handle for the selected locale, calls `espure_phonemize()` for each
-word, and maps the returned Kirshenbaum-style output into ESPormant32
-`PhonemeNode` values. Locale changes are accepted only when that locale was
-compiled into the application.
+Available component modes are unsigned Bytebeat, Floatbeat, and Signed
+Bytebeat. Select the mode to match the expression. The root
+[`README.md`](../README.md) documents the component's current expression
+capabilities and limitations.
 
-The current adapter uses the rendered string API; it does not currently
-consume `espure_phonemize_stream()`'s structured segment output. Treat this
-as an integration detail, not as a stable cross-component file or wire
-format. Changes to that data flow should be made and tested explicitly in
-the ESPormant32 adapter.
+## Hardware Examples
 
-The runnable reference orchestration is in:
+The repository examples demonstrate application-level integration with
+specific ESP32-P4 audio hardware:
 
-- [`tts_app.cpp`](../examples/console_tts/main/tts_app.cpp): text and markup
-  processing, G2P conversion, and preparation of synthesis frames.
-- [`main.cpp`](../examples/console_tts/main/main.cpp): application startup,
-  board/audio setup, task scheduling, and PCM output.
-- [`espure_g2p.cpp`](../src/g2p/espure/espure_g2p.cpp): ESPure adapter.
-- [`klatt_synth.h`](../src/dsp/klatt_synth.h): synthesizer interface.
+- [`console_bytebeat`](../examples/console_bytebeat/README.md) is the basic
+  serial-controlled playback example.
+- [`console_bytebeat_dev`](../examples/console_bytebeat_dev/README.md) adds
+  development controls and declares a UART Filebridge dependency.
 
-## Build the reference applications
-
-The user-facing console is the clean end-to-end TTS reference:
-
-```powershell
-Set-Location examples\console_tts
-idf.py set-target esp32p4
-idf.py build
-```
-
-The developer variant adds its display, telemetry, and UART Filebridge setup:
-
-```powershell
-Set-Location examples\console_tts_dev
-idf.py set-target esp32p4
-idf.py build
-```
-
-For board assumptions and commands, see the
-[console_tts README](../examples/console_tts/README.md) and
-[console_tts_dev README](../examples/console_tts_dev/README.md). The
-[UART Filebridge guide](development_tools/FILEBRIDGE.md) documents the
-development transfer workflow.
+These example configurations are not requirements of the reusable component.
+Review each example's README and configuration before using it with different
+hardware.

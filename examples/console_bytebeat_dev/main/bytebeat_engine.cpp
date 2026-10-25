@@ -441,12 +441,12 @@ void bytebeat_engine_init(void) {
     }
     
     printf("Bytebeat Engine initialized (Pure C - No JavaScript!)\n");
-    printf("Chip: %s | PIE: %s\n", 
+    printf("Chip: %s | PIE hardware: %s (bytebeat PIE kernel: not implemented)\n",
            bytebeat_get_chip_name(), 
            bytebeat_pie_available() ? "Available" : "Not available");
            
 #ifdef CONFIG_ESP_BYTEBEAT_USE_DSP
-    printf("ESP-DSP: Enabled (Hardware-accelerated math)\n");
+    printf("ESP-DSP: Enabled (square-root helper; target performance unmeasured)\n");
 #else
     printf("ESP-DSP: Disabled (Standard math)\n");
 #endif
