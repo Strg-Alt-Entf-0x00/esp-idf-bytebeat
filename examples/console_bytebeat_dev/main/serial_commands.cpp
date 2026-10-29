@@ -200,6 +200,14 @@ static void serial_listener_task(void *arg) {
                     bytebeat_engine_set_formula(line + 2);
                     bytebeat_engine_set_paused(false);
                     printf("[SERIAL] Playback STARTED\n");
+                } else if (strcmp(line, "TOOL_ID") == 0) {
+                    printf("TOOL_ID:esp-idf-bytebeat:console_bytebeat_dev:2\n");
+                } else if (strncmp(line, "VLD:", 4) == 0) {
+                    if (bytebeat_engine_validate_formula(line + 4)) {
+                        printf("BYTEBEAT:FORMULA:VALID\n");
+                    } else {
+                        printf("BYTEBEAT:FORMULA:INVALID\n");
+                    }
                 } else if (strcmp(line, "VERSION") == 0 || strcmp(line, "VERSION?") == 0) {
                     // VERSION command - for tool handshake
                     printf("BYTEBEAT:ESP32-P4:v2.1.0\n");

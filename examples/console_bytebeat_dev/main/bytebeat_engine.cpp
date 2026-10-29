@@ -460,6 +460,12 @@ void bytebeat_engine_set_formula(const char* formula) {
     s_flag_reload = true;
 }
 
+bool bytebeat_engine_validate_formula(const char* formula) {
+    if (!formula || !*formula) return false;
+    bytebeat_program_t candidate = {};
+    return bytebeat_compile(formula, &candidate);
+}
+
 bytebeat_native_load_result_t bytebeat_engine_set_native_bytecode(
     const uint8_t *data,
     size_t length) {

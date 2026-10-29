@@ -17,6 +17,18 @@ This is the **development version** of ESP Bytebeat Console, designed for:
 
 ---
 
+## Browser Web Serial Tool
+
+The project-root [`tools/`](../../tools/) page connects to this development
+console, searches the checked-in formula catalog, previews supported
+expressions locally, and sends formulas through the firmware's `FORMULA:`
+command. Start `python -m http.server 8000` from the repository root and open
+`http://localhost:8000/tools/` in Chrome or Edge. Close the ESP-IDF monitor
+before the browser claims the COM port. Formula compilation still happens on
+the ESP32; see the serial log for the result.
+
+---
+
 ## 🆚 Differences from console_bytebeat
 
 | Feature | console_bytebeat | console_bytebeat_dev |
@@ -336,8 +348,7 @@ C:\esp\v6.0.2\esp-idf\export.bat
 ## 📚 Documentation
 
 **In Project:**
-- [FILEBRIDGE.md](../../documentation/development_tools/FILEBRIDGE.md) - Filebridge guide
-- [INTEGRATION.md](../../documentation/INTEGRATION.md) - Component integration
+- [INTEGRATION.md](../../INTEGRATION.md) - Component integration
 
 **Reference:**
 - [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/)
@@ -442,3 +453,79 @@ C:\esp\v6.0.2\esp-idf\export.bat
 **Last Update:** 2025-01-20
 
 **Ready to develop!** 🚀
+
+## Filebridge Setup
+
+# Filebridge Setup (Developer Example Only)
+
+The developer example includes `esp-uart-filebridge` for transferring files between the device's SD card and your development PC over UART. This is a development tool, not part of the component's public API.
+
+## Configuration
+
+The filebridge runs on UART1 at 3,000,000 baud and mounts the SD card at `/sd`. Check the firmware startup output for actual port assignment and verify board wiring matches the configuration.
+
+## Usage
+
+### List Files
+
+```bash
+python -m esp_idf_uart_filebridge.cli --port COM_PORT --baud 3000000 ls /sd
+```
+
+### Download File
+
+```bash
+python -m esp_idf_uart_filebridge.cli --port COM_PORT --baud 3000000 download /sd/file.wav local/file.wav
+```
+
+Replace `COM_PORT` with your system's serial port connected to the filebridge UART.
+
+## Requirements
+
+- Python package: `esp-idf-uart-filebridge`
+- Close any programs using the serial port during transfers
+- The filebridge port is separate from the console port
+
+## Notes
+
+- File integrity: Compare downloaded file size with remote listing
+- Port conflicts: Ensure exclusive access to the serial port during transfers
+- Configuration details in example's `idf_component.yml` and README
+
+## Filebridge Setup
+
+# Filebridge Setup (Developer Example Only)
+
+The developer example includes `esp-uart-filebridge` for transferring files between the device's SD card and your development PC over UART. This is a development tool, not part of the component's public API.
+
+## Configuration
+
+The filebridge runs on UART1 at 3,000,000 baud and mounts the SD card at `/sd`. Check the firmware startup output for actual port assignment and verify board wiring matches the configuration.
+
+## Usage
+
+### List Files
+
+```bash
+python -m esp_idf_uart_filebridge.cli --port COM_PORT --baud 3000000 ls /sd
+```
+
+### Download File
+
+```bash
+python -m esp_idf_uart_filebridge.cli --port COM_PORT --baud 3000000 download /sd/file.wav local/file.wav
+```
+
+Replace `COM_PORT` with your system's serial port connected to the filebridge UART.
+
+## Requirements
+
+- Python package: `esp-idf-uart-filebridge`
+- Close any programs using the serial port during transfers
+- The filebridge port is separate from the console port
+
+## Notes
+
+- File integrity: Compare downloaded file size with remote listing
+- Port conflicts: Ensure exclusive access to the serial port during transfers
+- Configuration details in example's `idf_component.yml` and README

@@ -1,3 +1,8 @@
+# ESP-IDF sdkconfig defaults
+# Example: esp-idf-bytebeat / examples/console_bytebeat
+# Hardware-specific options must match the target board and ESP-IDF version.
+# Entries and values are preserved; sections are ordered for easier review.
+
 # ============================================================================
 # ESP32-P4 Hardware Target Configuration
 # ============================================================================
@@ -32,19 +37,23 @@ CONFIG_FREERTOS_HZ=1000
 # ============================================================================
 # Web DAW Component Configuration (Audio rendering and task scheduling)
 # ============================================================================
-CONFIG_DAW_SAMPLE_RATE=48000
 CONFIG_DAW_CHUNK_SIZE=512
-CONFIG_DAW_NUM_BUFFERS=40
-CONFIG_DAW_JS_CORE_ID=0
 CONFIG_DAW_COORD_CORE_ID=1
+CONFIG_DAW_I2C_SCL_GPIO=8
+CONFIG_DAW_I2C_SDA_GPIO=7
+CONFIG_DAW_I2S_BCLK_GPIO=12
+CONFIG_DAW_I2S_DOUT_GPIO=9
 
 # ============================================================================
 # ES8311 Audio Codec Pin Configuration
 # ============================================================================
 CONFIG_DAW_I2S_MCLK_GPIO=13
-CONFIG_DAW_I2S_BCLK_GPIO=12
 CONFIG_DAW_I2S_WS_GPIO=10
-CONFIG_DAW_I2S_DOUT_GPIO=9
-CONFIG_DAW_I2C_SDA_GPIO=7
-CONFIG_DAW_I2C_SCL_GPIO=8
+CONFIG_DAW_JS_CORE_ID=0
+CONFIG_DAW_NUM_BUFFERS=40
 CONFIG_DAW_PA_PIN_GPIO=53
+
+# ============================================================================
+# Web DAW Component Configuration (Audio rendering and task scheduling)
+# ============================================================================
+CONFIG_DAW_SAMPLE_RATE=48000

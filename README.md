@@ -59,14 +59,58 @@ coverage is not evidence that formulas compile or play on the ESP32. See
 [Development Tools](documentation/development_tools/DEVELOPMENT_TOOLS.md) for
 the current snapshot and tool limitations.
 
-The current `tools_py/bytebeat_tool.py` expects helper modules and catalog paths
-that are not present in this checkout, so its CLI cannot currently be run.
-See [Development Tools](documentation/development_tools/DEVELOPMENT_TOOLS.md)
-for the observed limitations and tool inventory.
+The [Bytebeat desktop tool](tools_py/bytebeat_tool.py) provides a formula
+catalog/editor, a firmware-verified serial connection, Play, Hold-to-play, and
+Stop controls, and a scriptable CLI. Mode and sample rate stay in the top
+toolbar; speaker volume and safety timeout are under Settings. Play runs until
+Stop or the configured timeout; Hold-to-play stops when its button is released.
+Settings > View > Show Serial Log controls the log pane, and the formula
+workspace and serial log share a resizable vertical splitter.
+On Windows, start it with
+`tools_py\start_bytebeat_tool.bat`; the launcher creates an isolated Python
+environment and installs PySide6 and pyserial. Python 3.10 or later
+must already be installed. The tool does not connect or send audio automatically.
+Before playback commands are sent, the device compiler checks the formula
+syntax. Catalog entries using unsupported JavaScript-like constructs are
+rejected without changing playback.
+
+The GUI's default device safety timeout is 60 seconds. Setting it to 0 requires
+an explicit confirmation in the GUI or `--allow-infinite` in the CLI. Device
+identity is verified before any playback command is sent. Disconnecting or
+closing after starting playback offers to send `STOP`; if playback is left
+running, the firmware timeout remains in effect. If firmware does not confirm
+playback within five seconds, the GUI reports an unknown state rather than
+assuming playback failed; `STOP` remains available and closing still offers a
+safe stop.
+
+Headless examples from the repository root:
+
+```powershell
+python tools_py\bytebeat_tool.py list --limit 20
+python tools_py\bytebeat_tool.py search melody --json --limit 10
+python tools_py\bytebeat_tool.py validate "t*(42&t>>10)"
+python tools_py\bytebeat_tool.py play 0 --port COM4 --duration 60
+python tools_py\bytebeat_tool.py stop --port COM4
+```
+
+`list` and `search` return bounded results by default; `--all` opts into the
+complete result set. JSON output omits formula source unless `--include-code`
+is explicitly requested.
+
+Run its host-side tests from the repository root with
+`python -m unittest discover -s tests/python -p "test_*.py"`. Serial tests use a
+simulated device and do not require hardware.
+
+The separate [Web Serial tool](tools/) provides browser-based COM connection,
+formula library search, editing, local preview, and direct `FORMULA:` transfer
+to the development firmware. Start a local server from the repository root
+with `python -m http.server 8000` and open <http://localhost:8000/tools/> in
+Chrome or Edge. It uses the firmware's built-in expression compiler; the
+extended native-bytecode compiler is not ported to the browser.
 
 ## Use the component
 
-See [Component integration](documentation/INTEGRATION.md) for dependency
+See [Component integration](INTEGRATION.md) for dependency
 setup, the output callback, and a minimal use example.
 
 ## Hardware-specific playback example
@@ -96,6 +140,7 @@ The component is licensed under the MIT License. Third-party components and form
 ## Documentation
 
 - [Changelog](CHANGELOG.md)
-- [Component integration](documentation/INTEGRATION.md)
-- [Development tools](documentation/development_tools/DEVELOPMENT_TOOLS.md)
-- [UART Filebridge](documentation/development_tools/FILEBRIDGE.md)
+- [Component integration](INTEGRATION.md)
+- [Console example](examples/console_bytebeat/README.md)
+- [Developer console example](examples/console_bytebeat_dev/README.md)
+- [Web Serial tool](tools/README.md)

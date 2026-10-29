@@ -1,5 +1,26 @@
 # Changelog - ESP Bytebeat
 
+## [Unreleased]
+
+### Added
+- Project-specific Web Serial interface under `tools/` for the development
+  firmware, formula catalog search, safe local preview, and direct formula
+  transfer through the device's native compiler.
+- Unified Python Bytebeat desktop console and CLI with exact firmware identity
+  verification, bounded playback defaults, explicit playback controls, and a
+  Windows launcher using an isolated virtual environment.
+- Compact playback toolbar with Play, Hold-to-play, Stop, and Settings-menu
+  controls for speaker volume and safety timeout.
+- Migrated the desktop UI to PySide6 and added a resizable vertical workspace/log
+  splitter consistent with the Siren Console.
+- Host-side serial protocol tests using a simulated development device.
+
+### Fixed
+- Added a firmware-side formula preflight so unsupported catalog syntax is
+  rejected before playback settings or start commands reach the device.
+- Bumped the development firmware identity to distinguish devices implementing
+  the formula-validation protocol.
+
 ## [1.1.0] - 2025-01-20 - Performance Release 🚀
 
 ### ⚡ Performance Improvements

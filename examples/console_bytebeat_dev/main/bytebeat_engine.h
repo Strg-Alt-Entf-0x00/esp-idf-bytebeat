@@ -27,6 +27,13 @@ void bytebeat_engine_init(void);
  */
 void bytebeat_engine_set_formula(const char* formula);
 
+/**
+ * @brief Check whether a formula is supported by the device compiler.
+ *
+ * This does not change the active formula or playback state.
+ */
+bool bytebeat_engine_validate_formula(const char* formula);
+
 typedef enum {
     BYTEBEAT_NATIVE_LOAD_OK,
     BYTEBEAT_NATIVE_LOAD_INVALID_ARGUMENT,
